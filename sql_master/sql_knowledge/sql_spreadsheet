@@ -1,0 +1,27 @@
+
+--INTRODUCTION TO SQL
+-- table = x
+-- columns= y1, y2, y3
+
+
+--SELECT
+SELECT * FROM x;
+SELECT y1, y2 FROM x;
+
+--SELECT DISTINCT
+SELECT DISTINCT y1 FROM x;
+
+--AS
+SELECT y1 AS y FROM x;
+
+--CREATE VIEW
+CREATE VIEW x2 AS
+SELECT y1, y2
+FROM x;
+
+--LIMIT (Postgre SQL)
+SELECT * FROM x
+LIMIT 6;
+
+
+--
