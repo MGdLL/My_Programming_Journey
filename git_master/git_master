@@ -1,0 +1,19 @@
+las comillas "" son de guía, lo que hay en el interior lo debes escribir, pero sin las comillas
+
+-- start git
+git version
+
+-- each time that you want to link a new repository
+git init
+
+-- to see status (delete, modified or created files)
+git status -s
+
+-- to ADD a file to the STAGING AREA (a middle step in case you finally decide to not change it)
+git add "file x"
+
+-- to COMIT to that version. Upload final version to LOCAL REPOSITORY
+git comit -m descripción de los cambios que has realizado si es pertinente, si no, no pongas la m
+
+
+
