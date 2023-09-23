@@ -15,11 +15,14 @@ git status -s
 -- to ADD a file to the STAGING AREA (a middle step in case you finally decide to not change it)
 git add file_name
 
--- to ADD all your files
+-- to ADD all your files (YOU HAVE TO SAVE THE NOTEBOOK FIRST)
 git add .
 
 -- to COMMIT to that version. Upload final version to LOCAL REPOSITORY
 git commit -m "descripción de los cambios que has realizado si es pertinente, si no, no pongas la m"
+
+-- sent to github (after configuring the account and linked the repository)
+git push
 
 
 MODIFY COMMITS
@@ -37,4 +40,4 @@ GITHUB
 git remote add origin https://github.com/MGdLL/My_Programming_Journey.git
 
 -- step 2, connect to repository (login)
-git push -u origin master
+git push -u origin branch_name_that_you_want_to_create
