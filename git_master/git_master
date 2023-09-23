@@ -1,19 +1,40 @@
-las comillas "" son de guía, lo que hay en el interior lo debes escribir, pero sin las comillas
 
+START GIT
 -- start git
 git version
 
 -- each time that you want to link a new repository
 git init
 
+
+BASIC DAILY 
+
 -- to see status (delete, modified or created files)
 git status -s
 
 -- to ADD a file to the STAGING AREA (a middle step in case you finally decide to not change it)
-git add "file x"
+git add file_name
 
--- to COMIT to that version. Upload final version to LOCAL REPOSITORY
-git comit -m descripción de los cambios que has realizado si es pertinente, si no, no pongas la m
+-- to ADD all your files
+git add .
+
+-- to COMMIT to that version. Upload final version to LOCAL REPOSITORY
+git commit -m "descripción de los cambios que has realizado si es pertinente, si no, no pongas la m"
 
 
+MODIFY COMMITS
 
+-- Index with all the commits
+git log --oneline
+
+-- Go back to another commit version
+git reset --hard commit_code_observed_with_git_log
+
+
+GITHUB
+
+-- connect to repository
+git remote add origin https://github.com/MGdLL/My_Programming_Journey.git
+
+-- step 2, connect to repository (login)
+git push -u origin master
