@@ -41,3 +41,6 @@ git remote add origin https://github.com/MGdLL/My_Programming_Journey.git
 
 -- step 2, connect to repository (login)
 git push -u origin branch_name_that_you_want_to_create
+
+--if you made changes in github, before commit you must made a pull request to refresh what you have in local based in github's changes
+git pull origin your_branch
