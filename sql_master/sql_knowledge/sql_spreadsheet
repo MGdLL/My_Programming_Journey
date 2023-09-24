@@ -24,4 +24,9 @@ SELECT * FROM x
 LIMIT 6;
 
 
---
+
+-- INTERMEDIATE SQL
+
+--COUNT (count rows from an specific column)
+SELECT COUNT(y1) AS Y1
+FROM x
