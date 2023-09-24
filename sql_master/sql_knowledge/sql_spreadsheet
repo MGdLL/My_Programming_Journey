@@ -30,3 +30,11 @@ LIMIT 6;
 --COUNT (count rows from an specific column)
 SELECT COUNT(y1) AS Y1
 FROM x
+
+-- DISTINC (returns all different values)
+SELECT DISTINC(y1) 
+FROM x
+
+-- COUNT DISTINC (returns the count, a number, of all different values)
+SELECT COUNT DISTINC(y1)
+FROM x
