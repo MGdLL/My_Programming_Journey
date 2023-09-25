@@ -1,0 +1,14 @@
+-- INTRODUCTION TO DAX IN POWER BI
+
+-- Table: x1, x2...
+-- Column: y1, y2...
+-- Row: z1, z2...
+
+  
+-- SUM() (adds all the numbers in a column)
+SUM(y1)
+
+-- LEFT() (returns the specified number of characters from the star of a text)
+LEFT('texthere', 4) = "text"
+
+-- 
