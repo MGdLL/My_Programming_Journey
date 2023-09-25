@@ -31,10 +31,10 @@ LIMIT 6;
 SELECT COUNT(y1) AS Y1
 FROM x
 
--- DISTINC (returns all different values)
-SELECT DISTINC(y1) 
+-- DISTINCT (returns all different values)
+SELECT DISTINCT(y1) 
 FROM x
 
--- COUNT DISTINC (returns the count, a number, of all different values)
-SELECT COUNT DISTINC(y1)
+-- COUNT DISTINCT (returns the count, a number, of all different values)
+SELECT COUNT(DISTINCT(y1))
 FROM x
