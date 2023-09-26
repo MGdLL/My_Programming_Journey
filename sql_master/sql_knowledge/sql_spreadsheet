@@ -44,4 +44,10 @@ SELECT y1
 FROM x
 WHERE y2 = 0
 
-
+Operators:
+> greater than or after
+< smaller than or before
+≥
+≤
+<> not equal to
+= equal to
