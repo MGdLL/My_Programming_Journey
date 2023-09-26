@@ -44,10 +44,33 @@ SELECT y1
 FROM x
 WHERE y2 = 0
 
+SELECT y1
+FROM X
+WHERE y2<>'text';
+
 Operators:
 > greater than or after
 < smaller than or before
-≥
-≤
+>=
+<=
 <> not equal to
 = equal to
+
+-- OR
+SELECT y1
+FROM x
+WHERE y1=1 OR y2<>0;
+
+-- AND
+SELECT y1
+FROM x
+WHERE y1=1 AND y2<>0
+
+SELECT y1
+FROM x
+WHERE (y1=1 OR y2<>0) AND (y3='red' OR y4<>'blue')
+
+-- BETWEEN
+SELECT y1
+FROM x
+WHERE y1=1 BETWEEN no y2<>0;
