@@ -38,3 +38,10 @@ FROM x
 -- COUNT DISTINCT (returns the count, a number, of all different values)
 SELECT COUNT(DISTINCT(y1))
 FROM x
+
+-- WHERE
+SELECT y1
+FROM x
+WHERE y2 = 0
+
+
