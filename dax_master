@@ -11,17 +11,32 @@ SUM(y1)
 -- LEFT() (returns the specified number of characters from the star of a text)
 LEFT('texthere', 4) = "text"
 
--- ITERATIVE FUNCTION (they are a normal calculation followed by an X)(is like a normal calculation, average sum etc. but it allows to insert a previous calculation, so you don't have to create another column with that calculation)
-SUMX(Sales, Sales[Price] + (Sales[Price] * Sales[Tax]))
+-- ITERATIVE FUNCTION (they are a normal calculation followed by an X)(is like a normal calculation, average sum etc. 
+but it allows to insert a previous calculation, so you don't have to create another column with that calculation) 
+(ONLY FOR MEASURES)
+SUMX(Sales, Sales[Price] + (Sales[Price] * Sales[Tax]));
 
--- FILTER (Expression: a measure or calculation to be evaluated. Must return a single value. Filters need to evaluate as a table)
-CALCULATE(<expression>[, <filter1> [, <filter2> [, ...]]])
-CALCULATE(SUM(Sales), Sales[Region]="EMEA")
+-- FILTER (Expression: a measure or calculation to be evaluated. Must return a single value. 
+Filters need to evaluate as a table) (FILTERS COLUMNS, NOT MEASURES)
+CALCULATE(<expression>[, <filter1> [, <filter2> [, ...]]]);
+CALCULATE(SUM(Sales), Sales[Region]="EMEA");
 
 -- VAR (to assign a name to a calculation that allows to works with it later in the same formula more efficiently)
 VAR name1 = CALCULATE (
   SUM (x[y1] ),
   FILTER ( x, x[y2] = 'text')
-RETURNS DIVIDE (name1 / another calculation)
+RETURNS DIVIDE (name1 / another calculation);
 
---
+-- DATE AND TIME
+YEAR(<date>)
+QUARTER(<datetime>)
+MONTH(<datetime>)
+
+-- FORMAT (to change the format. there are a lot of options)
+FORMAT(<date>,<"dddd">)
+
+-- CALENDAR AUTO (returns a table with a single column 'date'that automatically takes the earliest
+and latest date in the model and internally calls CALENDAR())
+CALENDARAUTO (datecolumn)
+
+
