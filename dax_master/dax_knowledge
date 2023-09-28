@@ -36,7 +36,9 @@ MONTH(<datetime>)
 FORMAT(<date>,<"dddd">)
 
 -- CALENDAR AUTO (returns a table with a single column 'date'that automatically takes the earliest
-and latest date in the model and internally calls CALENDAR())
-CALENDARAUTO (datecolumn)
+and latest date in the model and internally calls CALENDAR()) (12, from january to december)
+CALENDARAUTO (12)
 
+--DATEDIFF (returns the interval between two dates) (can be in day, month, year...)
+DATEDIFF = (date1, date2, day)
 

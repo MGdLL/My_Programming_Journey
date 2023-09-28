@@ -7,6 +7,7 @@ git version
 git init
 
 
+
 BASIC DAILY 
 
 -- to see status (delete, modified or created files)
@@ -25,6 +26,7 @@ git commit -m "descripción de los cambios que has realizado si es pertinente, s
 git push
 
 
+
 MODIFY COMMITS
 
 -- Index with all the commits
@@ -32,6 +34,7 @@ git log --oneline
 
 -- Go back to another commit version
 git reset --hard commit_code_observed_with_git_log
+
 
 
 GITHUB
