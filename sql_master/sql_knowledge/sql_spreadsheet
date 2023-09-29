@@ -75,3 +75,14 @@ WHERE (y1=1 OR y2<>0) AND (y3='red' OR y4<>'blue')
 SELECT y1
 FROM x
 WHERE y1 BETWEEN 1 AND 10
+
+-- LIKE (to search, filter)
+-- % (match zero, one or many characters)(tex% - text, texted, tex)
+-- _ (match a single character)(tex% - text, texs)
+SELECT y1
+FROM X
+WHERE y2 LIKE 'tex%';
+
+SELECT y1
+FROM X
+WHERE y2 LIKE 'tex_';
