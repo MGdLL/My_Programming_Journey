@@ -2,6 +2,7 @@
 --INTRODUCTION TO SQL
 -- table = x
 -- columns= y1, y2, y3
+-- Remember in SQL you use simple quotes (')
 
 
 --SELECT
