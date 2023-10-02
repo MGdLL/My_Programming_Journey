@@ -37,6 +37,8 @@ SELECT DISTINCT(y1)
 FROM x
 
 -- COUNT DISTINCT (returns the count, a number, of all different values)
+(count(*) - takes into account ALL values, including null)
+(count(y1) - takes into account ONLY NOT NULL values)
 SELECT COUNT(DISTINCT(y1))
 FROM x
 
