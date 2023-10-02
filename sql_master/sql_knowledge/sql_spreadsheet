@@ -95,4 +95,4 @@ WHERE y2 NOT LIKE '_ex%';
 -- IN (instead of using a lot of OR you concatenate the values)
 SELECT y1
 FROM X
-WHERE y2 IN (1,2,3)
+WHERE y2 IN ("text1","text2","text3")
