@@ -117,7 +117,7 @@ SELECT MAX(y1)
 FROM X
 
 
--- ROUND (round decimals)
+-- ROUND (round decimals. If you do not write a number it will round it to an intire number)
 SELECT ROUND(AVG(y1), 2)
 FROM x
 
