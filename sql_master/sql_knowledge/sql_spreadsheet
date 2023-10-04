@@ -100,10 +100,25 @@ FROM X
 WHERE y2 IN ("text1","text2","text3")
 
 --- SUMMARIZING VALUES
--- AVG
+-- AVG (only numerical values)
 SELECT AVG(y1)
 FROM X
 
--- SUM
+-- SUM (only numerical values)
 SELECT SUM(y1)
 FROM x
+
+-- MIN (various data types)
+SELECT MIN(y1)
+FROM X
+
+-- MAX (various data types)
+SELECT MAX(y1)
+FROM X
+
+
+-- ROUND (round decimals)
+SELECT ROUND(AVG(y1), 2)
+FROM x
+
+
