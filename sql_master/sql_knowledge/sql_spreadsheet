@@ -98,3 +98,12 @@ WHERE y2 NOT LIKE '_ex%';
 SELECT y1
 FROM X
 WHERE y2 IN ("text1","text2","text3")
+
+--- SUMMARIZING VALUES
+-- AVG
+SELECT AVG(y1)
+FROM X
+
+-- SUM
+SELECT SUM(y1)
+FROM x
