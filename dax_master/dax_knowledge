@@ -40,6 +40,25 @@ FORMAT(<date>,<"dddd">)
 and latest date in the model and internally calls CALENDAR()) (12, from january to december)
 CALENDARAUTO (12)
 
+
+
+---- DAX FUNCTIONS IN POWER BI
+
 --DATEDIFF (returns the interval between two dates) (can be in day, month, year...)
-DATEDIFF = (date1, date2, day)
+DATEDIFF(date1, date2, day)
+
+--- FILTERING
+--CALCULATE (ignores ALL kind of filtering (page, graph,etc.) and just returns what you complete in the formula´s filter)
+CALCULATE(<expression>,<filter1>,[<filter2>[, ...]])
+
+-- FILTER (returns a filtered table)
+FILTER(<table>, <filter>)
+
+--- COUNTING
+COUNT(<column>)Returns the amount of rows with numbers, dates, or strings in a column
+COUNTA(<column>)Returns the amount of rows with numbers, dates, strings, or booleans in a column
+COUNTBLANKS(<column>)Returns the amount of blank rows
+DISTINCTCOUNT(<column>)Returns the amount of distinct values in a column
+COUNTROWS(<table>)Returns the amount of rows with numbers, dates, and strings in a table
+
 
