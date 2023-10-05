@@ -59,6 +59,9 @@ COUNT(<column>)Returns the amount of rows with numbers, dates, or strings in a c
 COUNTA(<column>)Returns the amount of rows with numbers, dates, strings, or booleans in a column
 COUNTBLANKS(<column>)Returns the amount of blank rows
 DISTINCTCOUNT(<column>)Returns the amount of distinct values in a column
-COUNTROWS(<table>)Returns the amount of rows with numbers, dates, and strings in a table
+COUNTROWS(<table>)Returns the amount of rows with numbers, dates, and strings in a table (THIS ONE WORKS WITH ONLY TABLES
+SO IF YOU WANT TO FILTER IT, YOU MUST USE FILTER EXPRESSION, NOT CALCULATE)
+
+
 
 
