@@ -1,4 +1,25 @@
+Hi!
+
+DayNo = DAY(Date[Date])
+
+DayShortName = FORMAT(Date[Date], "ddd")
+
+Costs = Fact_Sales[Total Excluding Tax] - Fact_Sales[Profit]
+
+Sales YoY % Old = 
+DIVIDE(
+        ([sales] - CALCULATE([Sales], 
+        SAMEPERIODLASTYEAR(´Dim_DeliveryDate´[Delivery Date Key]))),
+        CALCULATE (SAMEPERIODLASTYEAR(´Dim_DeliveryDate´[Delivery Date Key])))
+
 Sales YoY =
 VAR SalesPriorYear = CALCULATE ([Sales], SAMEPERIODLASTYEAR (´Dim_DeliveryDate´[Delivery Date Key]))
 RETURN
 DIVIDE (([sales] - SalesPriorYear), SalesPriorYear)
+
+
+Total Costs East SUMX =
+SUMX(FILTER(Fact_Orders, Fact_Orders[Region]="East"),Fact_Orders[Sales]- Fact_Orders[Profit])
+
+
+Total Costs RANKX =RANKX(    ALL(Dim_Sales[Region]),[Total Costs])

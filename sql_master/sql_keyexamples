@@ -1,5 +1,0 @@
-
-
--- to round to the nearest thousand (normal result= 3451, negative rounded=3000)
-SELECT ROUND(AVG(budget), -3) AS avg_budget_thousands
-FROM films;

@@ -1,9 +1,10 @@
--- INTRODUCTION TO DAX IN POWER BI
+--- INTRODUCTION TO DAX IN POWER BI
 
 -- Table: x1, x2...
 -- Column: y1, y2...
 -- Row: z1, z2...
 -- Remember in DAX you use double quotes (")
+-- Context of row, query and filter
 
   
 -- SUM() (adds all the numbers in a column)
@@ -40,12 +41,22 @@ FORMAT(<date>,<"dddd">)
 and latest date in the model and internally calls CALENDAR()) (12, from january to december)
 CALENDARAUTO (12)
 
+--DATEDIFF (returns the interval between two dates) (can be in day, month, year...)
+DATEDIFF = (date1, date2, day)
+
 
 
 ---- DAX FUNCTIONS IN POWER BI
 
---DATEDIFF (returns the interval between two dates) (can be in day, month, year...)
-DATEDIFF(date1, date2, day)
+-- CALENDAR (like calendar auto, but not auto)
+CALENDAR(start_date>, end_date>)
+
+--SUBSTITUTE (replaces existing text with new text in a string)
+SUBSTITUTE(<text>, <old_text>, <new_text>, <instance_num>)
+
+-- RANKX (as rank but you can enter a calculation. Rank is used to give a number taking into account 
+the maximum value of the field that you want)(in this case you want to show all y1 but ordered by y2 value)
+RANKX(ALL(x,y1),y2)
 
 --- FILTERING
 --CALCULATE (ignores ALL kind of filtering (page, graph,etc.) and just returns what you complete in the formula´s filter)
@@ -53,6 +64,11 @@ CALCULATE(<expression>,<filter1>,[<filter2>[, ...]])
 
 -- FILTER (returns a filtered table)
 FILTER(<table>, <filter>)
+
+-- FILTERING INTERATING FUNCTIONS (you can filter a field and then do a calculation with them, 
+so you do not have to create an intermediate function)
+SUMX(FILTER(x,y1="text"),y1-y2)
+
 
 --- COUNTING
 COUNT(<column>)Returns the amount of rows with numbers, dates, or strings in a column
