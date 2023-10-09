@@ -80,4 +80,25 @@ SO IF YOU WANT TO FILTER IT, YOU MUST USE FILTER EXPRESSION, NOT CALCULATE)
 
 
 
+---- INTERMEDIATE IN DAX WITH POWER BI
+
+--- LOGICAL FUNCTIONS
+
+-- IF
+IF(<logical_test (y1=2)>, <value_if_true (True)>, <value_if_false (False)>)
+
+-- AND(), OR(), NOT()
+AND(<logical1>,<logical2>) --- AND(5 < 4, 5 < 6) = AND(FALSE, TRUE) = FALSE (returns true if both conditions are true)
+OR(<logical1>,<logical2>) --- OR(5 < 4, 5 < 6) = OR(FALSE, TRUE) = TRUE (returns true if at least one is true)
+NOT(<logical>) --- NOT(OR(5 < 4, 5 < 6)) = NOT(TRUE) = FALSE (changes true to flase and viceversa)
+
+-- SWITCH (as IF, but more complex)
+SWITCH(<expression>, <value>, <result>[, <value>, <result>] ... [, <else>])
+Performance = SWITCH(TRUE, 
+              [Total_Sales] < 25 000, "Poor",
+              [Total_Sales] < 50 000, "Below expectations",
+              [Total_Sales] < 75 000, "Above expectations",
+              "Exceptional")
+
+
 
