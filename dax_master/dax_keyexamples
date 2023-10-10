@@ -23,3 +23,6 @@ SUMX(FILTER(Fact_Orders, Fact_Orders[Region]="East"),Fact_Orders[Sales]- Fact_Or
 
 
 Total Costs RANKX =RANKX(    ALL(Dim_Sales[Region]),[Total Costs])
+
+
+=IF(critical<>BLANK(), 1, 0)
