@@ -102,4 +102,6 @@ Performance = SWITCH(TRUE,
               "Exceptional")
 
 
+--- ROW LEVEL SECURITY (RLS)
+-- USERPRINCIPALNAME()
 
