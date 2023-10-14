@@ -1,5 +1,3 @@
-Hi!
-
 DayNo = DAY(Date[Date])
 
 DayShortName = FORMAT(Date[Date], "ddd")
@@ -26,3 +24,11 @@ Total Costs RANKX =RANKX(    ALL(Dim_Sales[Region]),[Total Costs])
 
 
 =IF(critical<>BLANK(), 1, 0)
+
+Total Sales YTD Last Year =
+TOTALYTD([Total Sales], SAMEPERIODLASTYEAR(Dim_Calendar[Date]))
+
+Total Sales YoY% =
+VAR Sales_LastYear = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(Dim_Calendar[Date])
+RETURN
+DIVIDE([Total Sales] - Sales_LastYear), Sales_LastYear)
