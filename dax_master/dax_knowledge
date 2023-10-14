@@ -141,3 +141,6 @@ FILTER(
                 Amounts[Year],               
                 Amounts[Category]),
       Amounts[Year]=2000)
+
+
+--- TIME INTELLIGENCE FUNCTIONS
