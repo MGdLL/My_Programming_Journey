@@ -144,3 +144,20 @@ FILTER(
 
 
 --- TIME INTELLIGENCE FUNCTIONS
+
+-- NEXTDAY (returns the next day) (returns a date)
+NEXTDAY(<dates>)
+
+-- SAMEPERIODLASTYEAR (Returns the last year) (returns a date)
+SAMEPERIODLASTYEAR(<dates>)
+
+-- DATESBETWEEN (retuns dates between start and end date) (returns a date)
+DATESBETWEEN(<dates>, <start_date>,<end_date>)
+
+-- TOTALYTD/QTD/MTD (returns year, quarter or month to date value of the expression)
+  TOTALYTD(<expression>, <dates> [,<filter>])
+  TOTALQTD(<expression>, <dates> [,<filter>])
+  TOTALMTD(<expression>, <dates> [,<filter>]
+
+You can mix them 
+Sum_YTD = TOTALYTD( SUM(Fact_Table[Orders]), Dim_Date[Date Key])
