@@ -103,5 +103,41 @@ Performance = SWITCH(TRUE,
 
 
 --- ROW LEVEL SECURITY (RLS)
--- USERPRINCIPALNAME()
+-- USERPRINCIPALNAME() (you do not nedd to add anything between the parentheses)
+USERPRINCIPALNAME()
 
+
+--- TABLE MANIPULATION FUNCTIONS
+-- DISTINCT (removes duplicate rows from a table or valuesa from a column)
+DISTINCT(<table> | <table>)
+
+-- SELECT COLUMNS (returns the selected columns from another table as a new table)
+SELECTCOLUMNS(<table>, <name>, <expression>)
+
+-- ADD COLUMNS (returns the input table appended with the selected columns from another table)
+ADDCOLUMNS(<table>, <name>, <expression>)
+ADDCOLUMNS(Fact_table,           
+          "Profit",           
+          Revenue - Costs)
+
+
+-- SUMMARIZE (returns a summary table for the requested totals over a set of groups)
+SUMMARIZE(<table>,         
+          <groupBy_columnName>,          
+          <name>,          
+          <expression>)
+
+Best practice is to wrap ADDCOLUMNS()around SUMMARIZE() when creating newcolumns
+ADDCOLUMNS(    
+      SUMMARIZE(Amounts,               
+                Amounts[Year],               
+                Amounts[Category]),    
+      "Total Amount",    
+      SUM(Amounts[Amount]))
+
+You can also filter
+FILTER(
+     SUMMARIZE(Amounts,               
+                Amounts[Year],               
+                Amounts[Category]),
+      Amounts[Year]=2000)
