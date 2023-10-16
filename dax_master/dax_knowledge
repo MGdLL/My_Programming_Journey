@@ -15,7 +15,7 @@ SUM(y1)
 LEFT('texthere', 4) = "text"
 
 -- ITERATIVE FUNCTION (they are a normal calculation followed by an X)(is like a normal calculation, average sum etc. 
-but it allows to insert a previous calculation, so you don't have to create another column with that calculation) 
+but it allows to insert a previous calculation, so you dont have to create another column with that calculation) 
 (ONLY FOR MEASURES)
 SUMX(Sales, Sales[Price] + (Sales[Price] * Sales[Tax]));
 

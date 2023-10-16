@@ -32,3 +32,23 @@ Total Sales YoY% =
 VAR Sales_LastYear = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(Dim_Calendar[Date])
 RETURN
 DIVIDE([Total Sales] - Sales_LastYear), Sales_LastYear)
+
+
+-- Rank avoinding an specific line (the one that does not fulfill the hasoneavalue rule )
+(you can do it also using switch)
+Actual Transaction Rank =
+IF (HASONEAVALUE(Dim_ProductCategory[ProductCategoryName])= TRUE,
+RANKX(
+        ALL(´Dim_ProductCategory´[ProductCategoryName]),
+        [Actual Transaction Amount]),
+BLANK())
+
+
+-- Separate date for year, month, DayNo
+Separated Date= DATE(
+        LEFT(previous_date, <number os characters that you want form the left>),
+        MID (previous_date, <start position from left>, <number of characters>),
+        RIGHT(previous_date, <number of characters from the right>))
+
+
+
