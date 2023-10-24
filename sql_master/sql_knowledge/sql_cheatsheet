@@ -125,3 +125,14 @@ the last summarizing formula calculates between values of the same column)
 SELECT (4.0/3.0);
 Aliases defined in the SELECT clause can not be used in the WHERE clause due to order of execution
 
+-- ORDER BY
+SELECT y1, y2
+FROM X
+ORDER BY y1 ASC, Y2 DESC
+
+-- GROUP BY (like distinct with the values)(Group by must be before order by)
+SELECT y1, y2
+FROM X
+GROUP BY y1, y2
+ORDER BY y1
+
