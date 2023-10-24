@@ -28,7 +28,7 @@ LIMIT 6;
 
 -- INTERMEDIATE SQL
 
---COUNT (count rows from an specific column)
+--COUNT (count rows from a specific column)
 SELECT COUNT(y1) AS Y1
 FROM x
 
@@ -116,9 +116,12 @@ FROM X
 SELECT MAX(y1)
 FROM X
 
-
--- ROUND (round decimals. If you do not write a number it will round it to an intire number)
+-- ROUND (round decimals. If you do not write a number it will round it to an entire number)
 SELECT ROUND(AVG(y1), 2)
 FROM x
 
+-- ARITHMETIC CALCULATIONS (+, -, *, and /. Calculates between values of the same row, 
+the last summarizing formula calculates between values of the same column)
+SELECT (4.0/3.0);
+Aliases defined in the SELECT clause can not be used in the WHERE clause due to order of execution
 
