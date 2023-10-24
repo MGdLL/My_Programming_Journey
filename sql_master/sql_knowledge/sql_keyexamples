@@ -27,4 +27,9 @@ FROM films;
 -- Group by 
 SELECT release_year, AVG(duration) AS avg_duration
 FROM films
+GROUP BY release_year;
+
+SELECT release_year, COUNT(DISTINCT(language))
+FROM films
 GROUP BY release_year
+ORDER BY count DESC;
