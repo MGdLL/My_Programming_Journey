@@ -45,11 +45,15 @@ FROM x
 -- WHERE
 SELECT y1
 FROM x
-WHERE y2 = 0
+WHERE y2 = 0;
 
 SELECT y1
 FROM X
 WHERE y2<>'text';
+
+SELECT y1
+FROM x
+WHERE y1 IN (´value1´, ´value2´);
 
 Operators:
 > greater than or after
@@ -136,3 +140,8 @@ FROM X
 GROUP BY y1, y2
 ORDER BY y1
 
+-- HAVING (like WHERE clause but for when you use the GROUP BY clause)
+SELECT y1, COUNT(y2)
+FROM X
+GROUP BY y1
+HAVING COUNT(y2) > 10;
