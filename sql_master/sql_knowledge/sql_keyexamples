@@ -33,3 +33,20 @@ SELECT release_year, COUNT(DISTINCT(language))
 FROM films
 GROUP BY release_year
 ORDER BY count DESC;
+
+
+-- WHERE & HAVING
+SELECT       
+	certification, 
+	COUNT(title) AS title_count
+FROM films
+WHERE certification 
+	IN ('G', 'PG', 'PG-13')
+GROUP BY certification
+HAVING COUNT(title) >500
+ORDER BY title_count DESC
+LIMIT 3;
+
+
+
+--- JOINING DATA SQL
