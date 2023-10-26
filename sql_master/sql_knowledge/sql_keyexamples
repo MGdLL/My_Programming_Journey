@@ -50,7 +50,16 @@ LIMIT 3;
 --- JOINING DATA SQL
 
 --INNER JOIN
-SELECT cities.name AS city, countries.name AS country, countries.region
-FROM cities
-INNER JOIN countries
-ON cities.country_code = countries.code;
+	SELECT cities.name AS city, countries.name AS country, countries.region
+	FROM cities
+	INNER JOIN countries
+	ON cities.country_code = countries.code;
+	
+	SELECT name, p.year, fertility_rate, e.year, e.unemployment_rate
+	FROM countries AS c
+	INNER JOIN populations AS p
+	ON c.code = p.country_code
+	-- Join to economies (as e)
+	INNER JOIN economies AS e
+	-- Match on country code
+	USING(code)
