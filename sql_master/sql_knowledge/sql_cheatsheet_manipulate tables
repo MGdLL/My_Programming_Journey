@@ -1,0 +1,17 @@
+--- JOINING DATA
+
+-- INNER JOIN. LEFT (only shows the values of the left table that matches the values of the right, 
+all the rest dissapears, including the ones from the left that does not match any of the right values) 
+(x1 is the LEFT table, x2 the right)(y1 and y2 must be equivalent)(you can use USING instead of ON if 
+the name of both columns are the same)
+  
+  SELECT y1, y2
+  FROM X1 AS 1
+  INNER JOIN X2 AS 2
+  ON 1.y1 = 2.y3
+  
+  SELECT y1, y2
+  FROM X1 AS 1
+  INNER JOIN X2 AS 2
+  USING (y1)
+
