@@ -1,10 +1,8 @@
-
+--- DATA EXTRACTION
 
 SELECT title, certification, language
 FROM films
 WHERE (certification IN ('NC-17', 'R')) AND (language IN ('English', 'Italian', 'Greek'));
-
-
 
 -- Count the unique titles
 SELECT COUNT(DISTINCT (title)) AS nineties_english_films_for_teens
@@ -50,3 +48,9 @@ LIMIT 3;
 
 
 --- JOINING DATA SQL
+
+--INNER JOIN
+SELECT cities.name AS city, countries.name AS country, countries.region
+FROM cities
+INNER JOIN countries
+ON cities.country_code = countries.code;
