@@ -3,15 +3,25 @@
 -- INNER JOIN. LEFT (only shows the values of the left table that matches the values of the right, 
 all the rest dissapears, including the ones from the left that does not match any of the right values) 
 (x1 is the LEFT table, x2 the right)(y1 and y2 must be equivalent)(you can use USING instead of ON if 
-the name of both columns are the same)
+the name of both columns are the same) (if you aliased a table you must use the alias name on the SELECT line)
   
-  SELECT y1, y2
+  SELECT 1.y1, 1.y2, 2.y2, y3
   FROM X1 AS 1
   INNER JOIN X2 AS 2
   ON 1.y1 = 2.y3
+  WHERE 1.y1=1;
   
-  SELECT y1, y2
+  SELECT 1.y1, 1.y2, 2.y2, y3
   FROM X1 AS 1
   INNER JOIN X2 AS 2
   USING (y1)
+  WHERE 1.y1=1
+  ORDER BY 1.y1;
 
+  (you can inner join several tables)
+  SELECT 1.y1, 1.y2, 2.y2, y3
+  FROM X1 AS 1
+  INNER JOIN X2 AS 2
+  USING (y)
+  INNER JOIN X3 AS 3
+  USING (y);
