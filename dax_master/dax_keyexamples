@@ -1,3 +1,11 @@
+-- FILTER - ES COMO WHEN (SQL) PARA DAX (Sácame un valor SOLO sobre unas filas específicas de la tabla. Sácame un valor WHEN las filas tengan un valor específico)
+CALCULATE(
+    MAXX(
+        FILTER(nielsen_weekly_ppd_cpd_market_master, nielsen_weekly_ppd_cpd_market_master[fuente_origen] = "PPD"),
+        nielsen_weekly_ppd_cpd_market_master[FECHA]
+    )
+
+
 DayNo = DAY(Date[Date])
 
 DayShortName = FORMAT(Date[Date], "ddd")
