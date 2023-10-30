@@ -36,4 +36,4 @@ it still mantains the value of the left but writes 'null' on the column that cam
 
 -- RIGHT JOIN (exactly the same as LEFT JOIN but viceversa. You can change the order of the tables and get exactly the same)
  
-hi
+hi hi
