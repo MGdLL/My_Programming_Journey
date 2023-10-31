@@ -51,4 +51,35 @@ If we have 2 values in the first table and 4 in the second we would end with 8 v
   CROSS JOIN x2;
 Example: "look at possible combinations of languages that COULD HAVE BEEN spoken in the two countries given their history"
 
+-- SELF JOIN (table joins with itself) (results are pairs of each field of both tables that have the same field in the column that we 
+used to pair them, on/using) (we should clean rows where data from both columns are the same using WHERE <>)
+  SELECT    
+    p1.country AS country1, 
+    p2.country AS country2, 
+    p1.continent
+  FROM prime_ministers AS p1
+  INNERJOIN prime_ministers AS p2
+  ON p1.continent = p2.continent AND p1.country <> p2.country;
 
+
+-- SET OPERATIONS (another way of joining data but in this case you paste one table to another, the fields from the columns used 
+to join the tables do not need to be the same)
+
+    ORIGINAL          INNER JOIN        UNION
+    x1.y1  x2.y1      x1.y1  x2.y1      x1.y1  x2.y1
+    1      2          2      2          1
+    2      3          3      3          2
+    3      3                            3
+
+    - UNION (copy and paste one table above the other, but if combinations of values are repeated, it eliminates them)
+    - UNION ALL (copy and paste one table above the other)
+        SELECT monarch AS leader, country
+        FROM monarchs
+        UNION SELECT prime_minister, country
+        FROM prime_ministers
+        ORDERBY country, leader
+        LIMIT 10;
+    - INTERSECT
+    
+
+    
