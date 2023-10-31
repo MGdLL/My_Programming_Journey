@@ -36,4 +36,19 @@ it still mantains the value of the left but writes 'null' on the column that cam
 
 -- RIGHT JOIN (exactly the same as LEFT JOIN but viceversa. You can change the order of the tables and get exactly the same)
  
-hi hi
+-- FULL JOIN (takes all values from both tables. It then complete with 'null' those cells that does not have values for some columns)
+  SELECT 1.y1, 1.y2, 2.y2, y3
+  FROM X1 AS 1
+  FULL JOIN X2 AS 2
+  ON 1.y1 = 2.y3
+  WHERE 1.y1=1;
+
+-- CROSS JOIN (takes each value from each column from the first table and cross them with each value from each column from the second table. 
+If we have 2 values in the first table and 4 in the second we would end with 8 values. Works kind like Mendel Peas)
+(We do not use USING or ON here)
+  SELECT y1, y2
+  FROM x1
+  CROSS JOIN x2;
+Example: "look at possible combinations of languages that COULD HAVE BEEN spoken in the two countries given their history"
+
+
