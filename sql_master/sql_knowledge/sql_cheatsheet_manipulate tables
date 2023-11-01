@@ -80,6 +80,9 @@ to join the tables do not need to be the same)
         ORDERBY country, leader
         LIMIT 10;
     - INTERSECT
+
+
+hi
     
 
     
