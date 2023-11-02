@@ -92,6 +92,59 @@ to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COL
     - EXCEPT (copy and paste one table above the other, but only maintain rows that are in the left table that do not
       match entirely with the right table)
 
+
+
+--- SUBQUERYING
+
+-- SEMI JOIN (chooses records in the first table where a condition is met in the second table)
+    SELECT president, country, continent
+    FROM presidents
+    WHERE country IN    
+      (SELECT country
+       FROM states
+       WHERE indep_year <1800);
+
+-- ANTI JOIN
+    SELECT country, president
+    FROM presidents
+    WHERE continent 
+    LIKE'%America'
+      AND country NOT IN        
+        (SELECT country
+        FROM states
+        WHERE indep_year <1800);
+
+-- Where can you add subqueries?
+  - INSIDE WHERE (conditions for all data that you query)
+      SELECT name, country_code, urbanarea_pop
+      FROM cities
+      WHERE name IN
+        (SELECT capital
+         FROM countries)
+      ORDER BY urbanarea_pop DESC;
+
+      SELECT *
+      FROM populations
+      WHERE life_expectancy > 1.15 *
+        (SELECT AVG(life_expectancy)
+         FROM populations
+         WHERE year = 2015) 
+          AND year = 2015;
+
+  - INSIDE SELECT (conditions for an specific column that you select in the select line)
+      SELECT DISTINCT continent,    
+        (SELECT COUNT(*)
+        FROM monarchs
+        WHERE states.continent = monarch.continent) AS monarch_count
+      FROM states;
+
+  - INSIDE FROM 
+      
+
+
+
+
+
     
 
     
