@@ -1,11 +1,16 @@
 -- Data: https://www.kaggle.com/datasets/holmjason2/videogamedata
 
--- Task 1: Let's find the ten best-selling video games in game_sales.
-  
-  -- Select all columns for the top ten best-selling video games (based on games_sold) in game_sales. 
-  SELECT * 
-  FROM game_sales
-  ORDER BY games_sold DESC
-  LIMIT 10;
+-- Task 1: Let's find the ten best-selling video games in game_sales. Select all columns for the top ten best-selling video games (based on games_sold) in game_sales. 
+    SELECT * 
+    FROM game_sales
+    ORDER BY games_sold DESC
+    LIMIT 10;
 
-  -- 
+-- Task 2: Join game_sales and reviews. Select a count of the number of games where both critic_score and user_score are null
+    SELECT COUNT(game)
+    FROM game_sales
+    LEFT JOIN reviews
+    USING(game)
+    WHERE critic_score IS NULL AND user_score IS NULL;
+
+-- Task 3: 
