@@ -1,147 +1,148 @@
 
---INTRODUCTION TO SQL
+--- INTRODUCTION TO SQL
 -- table = x
 -- columns= y1, y2, y3
 -- Remember in SQL you use simple quotes (')
 
 
---SELECT
-SELECT * FROM x;
-SELECT y1, y2 FROM x;
+  --SELECT
+    SELECT * FROM x;
+    SELECT y1, y2 FROM x;
+  
+  --SELECT DISTINCT
+    SELECT DISTINCT y1 FROM x;
+    
+  --AS
+    SELECT y1 AS y FROM x;
+  
+  --CREATE VIEW
+    CREATE VIEW x2 AS
+    SELECT y1, y2
+    FROM x;
+  
+  --LIMIT (Postgre SQL)
+    SELECT * FROM x
+    LIMIT 6;
 
---SELECT DISTINCT
-SELECT DISTINCT y1 FROM x;
-
---AS
-SELECT y1 AS y FROM x;
-
---CREATE VIEW
-CREATE VIEW x2 AS
-SELECT y1, y2
-FROM x;
-
---LIMIT (Postgre SQL)
-SELECT * FROM x
-LIMIT 6;
 
 
+--- INTERMEDIATE SQL
 
--- INTERMEDIATE SQL
+  --COUNT (count rows from a specific column)
+    SELECT COUNT(y1) AS Y1
+    FROM x
+  
+  -- DISTINCT (returns all different values)
+    SELECT DISTINCT(y1) 
+    FROM x
+  
+  -- COUNT DISTINCT (returns the count, a number, of all different values)
+  (count(*) - takes into account ALL values, including null)
+  (count(y1) - takes into account ONLY NOT NULL values)
+    SELECT COUNT(DISTINCT(y1))
+    FROM x
+  
+  -- WHERE
+    SELECT y1
+    FROM x
+    WHERE y2 = 0;
+    
+    SELECT y1
+    FROM X
+    WHERE y2<>'text';
+    
+    SELECT y1
+    FROM x
+    WHERE y1 IN (´value1´, ´value2´);
+  
+  Operators:
+    > greater than or after
+    < smaller than or before
+    >=
+    <=
+    <> not equal to
+    = equal to
+  
+  -- OR
+    SELECT y1
+    FROM x
+    WHERE y1=1 OR y2<>0;
+  
+  -- AND
+    SELECT y1
+    FROM x
+    WHERE y1=1 AND y2<>0
+    
+    SELECT y1
+    FROM x
+    WHERE (y1=1 OR y2<>0) AND (y3='red' OR y4<>'blue')
+  
+  -- BETWEEN
+    SELECT y1
+    FROM x
+    WHERE y1 BETWEEN 1 AND 10
+  
+  -- LIKE (to search, filter)
+  -- % (match zero, one or many characters)(tex% - text, texted, tex)
+  -- _ (match a single character)(tex% - text, texs)
+    SELECT y1
+    FROM X
+    WHERE y2 LIKE 'tex%';
+  
+    SELECT y1
+    FROM X
+    WHERE y2 LIKE 'tex_';
+  
+  -- NOT LIKE
+    SELECT y1
+    FROM X
+    WHERE y2 NOT LIKE '_ex%';
+  
+  -- IN (instead of using a lot of OR you concatenate the values)
+    SELECT y1
+    FROM X
+    WHERE y2 IN ("text1","text2","text3")
 
---COUNT (count rows from a specific column)
-SELECT COUNT(y1) AS Y1
-FROM x
-
--- DISTINCT (returns all different values)
-SELECT DISTINCT(y1) 
-FROM x
-
--- COUNT DISTINCT (returns the count, a number, of all different values)
-(count(*) - takes into account ALL values, including null)
-(count(y1) - takes into account ONLY NOT NULL values)
-SELECT COUNT(DISTINCT(y1))
-FROM x
-
--- WHERE
-SELECT y1
-FROM x
-WHERE y2 = 0;
-
-SELECT y1
-FROM X
-WHERE y2<>'text';
-
-SELECT y1
-FROM x
-WHERE y1 IN (´value1´, ´value2´);
-
-Operators:
-> greater than or after
-< smaller than or before
->=
-<=
-<> not equal to
-= equal to
-
--- OR
-SELECT y1
-FROM x
-WHERE y1=1 OR y2<>0;
-
--- AND
-SELECT y1
-FROM x
-WHERE y1=1 AND y2<>0
-
-SELECT y1
-FROM x
-WHERE (y1=1 OR y2<>0) AND (y3='red' OR y4<>'blue')
-
--- BETWEEN
-SELECT y1
-FROM x
-WHERE y1 BETWEEN 1 AND 10
-
--- LIKE (to search, filter)
--- % (match zero, one or many characters)(tex% - text, texted, tex)
--- _ (match a single character)(tex% - text, texs)
-SELECT y1
-FROM X
-WHERE y2 LIKE 'tex%';
-
-SELECT y1
-FROM X
-WHERE y2 LIKE 'tex_';
-
--- NOT LIKE
-SELECT y1
-FROM X
-WHERE y2 NOT LIKE '_ex%';
-
--- IN (instead of using a lot of OR you concatenate the values)
-SELECT y1
-FROM X
-WHERE y2 IN ("text1","text2","text3")
 
 --- SUMMARIZING VALUES
--- AVG (only numerical values)
-SELECT AVG(y1)
-FROM X
-
--- SUM (only numerical values)
-SELECT SUM(y1)
-FROM x
-
--- MIN (various data types)
-SELECT MIN(y1)
-FROM X
-
--- MAX (various data types)
-SELECT MAX(y1)
-FROM X
-
--- ROUND (round decimals. If you do not write a number it will round it to an entire number)
-SELECT ROUND(AVG(y1), 2)
-FROM x
-
--- ARITHMETIC CALCULATIONS (+, -, *, and /. Calculates between values of the same row, 
-the last summarizing formula calculates between values of the same column)
-SELECT (4.0/3.0);
-Aliases defined in the SELECT clause can not be used in the WHERE clause due to order of execution
-
--- ORDER BY
-SELECT y1, y2
-FROM X
-ORDER BY y1 ASC, Y2 DESC
-
--- GROUP BY (like distinct with the values)(Group by must be before order by)
-SELECT y1, y2
-FROM X
-GROUP BY y1, y2
-ORDER BY y1
-
--- HAVING (like WHERE clause but for when you use the GROUP BY clause)
-SELECT y1, COUNT(y2)
-FROM X
-GROUP BY y1
-HAVING COUNT(y2) > 10;
+  -- AVG (only numerical values)
+      SELECT AVG(y1)
+      FROM X
+  
+  -- SUM (only numerical values)
+    SELECT SUM(y1)
+    FROM x
+  
+  -- MIN (various data types)
+    SELECT MIN(y1)
+    FROM X
+  
+  -- MAX (various data types)
+    SELECT MAX(y1)
+    FROM X
+  
+  -- ROUND (round decimals. If you do not write a number it will round it to an entire number)
+    SELECT ROUND(AVG(y1), 2)
+    FROM x
+  
+  -- ARITHMETIC CALCULATIONS (+, -, *, and /. Calculates between values of the same row, 
+  the last summarizing formula calculates between values of the same column)
+    SELECT (4.0/3.0);
+  Aliases defined in the SELECT clause can not be used in the WHERE clause due to order of execution
+  
+  -- ORDER BY
+    SELECT y1, y2
+    FROM X
+    ORDER BY y1 ASC, Y2 DESC
+  
+  -- GROUP BY (like distinct with the values)(Group by must be before order by)
+    SELECT y1, y2
+    FROM X
+    GROUP BY y1, y2
+    ORDER BY y1
+  
+  -- HAVING (like WHERE clause but for when you use the GROUP BY clause)
+    SELECT y1, COUNT(y2)
+    FROM X
+    GROUP BY y1
+    HAVING COUNT(y2) > 10;
