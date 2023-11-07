@@ -49,3 +49,15 @@
     ORDER BY avg_critic_score
 
 -- Task 6
+-- Select year, an average of user_score, and a count of games released in a given year, aliased and rounded
+-- Include only years with more than four reviewed games; group data by year
+-- Order data by avg_user_score, and limit to ten results
+    SELECT game_sales.year, ROUND(AVG(reviews.user_score),2) AS avg_user_Score, COUNT(game_sales.game) AS num_games
+    FROM game_sales
+    INNER JOIN reviews
+    USING(game)
+    GROUP BY year
+    HAVING COUNT(game_sales.game) > 4
+    ORDER BY avg_user_score DESC
+    LIMIT 10;
+
