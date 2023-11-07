@@ -3,4 +3,4 @@ I want to expand my Data Analysis skills by learning and doing projects about th
 - SQL
 - DAX for Power BI
 
-Check what I am up to! 👩‍💻
+I upload ✨daily content✨. Check what I am up to! 👩‍💻
