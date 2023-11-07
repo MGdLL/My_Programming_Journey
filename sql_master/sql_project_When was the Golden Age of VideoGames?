@@ -27,4 +27,25 @@
     LIMIT 10;
 
 -- Task 4:
---
+-- Paste your query from the previous task; update it to add a count of games released in each year called num_games
+-- Update the query so that it only returns years that have more than four reviewed games
+    SELECT game_sales.year, ROUND(AVG(reviews.critic_score),2) AS avg_critic_Score, COUNT(game_Sales.game) AS num_games
+    FROM game_sales
+    INNER JOIN reviews
+    USING(game)
+    GROUP BY year
+    HAVING COUNT(game_sales.game) > 4
+    ORDER BY avg_critic_score DESC
+    LIMIT 10;
+
+-- Task 5:
+-- Select the year and avg_critic_score for those years that dropped off the list of critic favourites 
+-- Order the results from highest to lowest avg_critic_score
+    SELECT year, avg_critic_score
+    FROM top_critic_years
+    WHERE year NOT IN
+        (SELECT year 
+        FROM top_critic_years_more_than_four_games)
+    ORDER BY avg_critic_score
+
+-- Task 6
