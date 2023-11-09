@@ -4,6 +4,7 @@
 -- 🟡 Task 1: 
 -- I started finding the top ten best-selling video games in 
 -- the game_sales dataset.
+
     SELECT * 
     FROM game_sales
     ORDER BY games_sold DESC
@@ -14,6 +15,7 @@
 -- I selected all columns for the top ten best-selling video games 
 -- (based on games_sold) in the game_sales dataset and count the games 
 -- that had no reviews
+
     SELECT COUNT(game)
     FROM game_sales
     LEFT JOIN reviews
@@ -31,6 +33,7 @@ count
 -- by release year, and ordered it from highest to lowest avg_critic_score, 
 -- limiting the results to 10. -- The goal was to know which years 
 -- video game critics loved
+
     SELECT game_sales.year, 
            ROUND(AVG(reviews.critic_score),2) AS avg_critic_Score
     FROM game_sales
@@ -58,6 +61,7 @@ year	avg_critic_score
 -- of games released each year, which I named num_games.
 -- I filtered the query to return only years with more than four reviewed games
 -- only to take data with a significant amount of reviews so our data were not shifted.
+
     SELECT game_sales.year, ROUND(AVG(reviews.critic_score),2) AS avg_critic_Score, 
            COUNT(game_Sales.game) AS num_games
     FROM game_sales
@@ -85,6 +89,7 @@ year	avg_critic_score	num_games
 -- I retrieved the year and avg_critic_score for the years that were no longer 
 -- on the list of critic favourites after deleting data with less than 4 reviews.
 -- Then, I sorted the results from highest to lowest avg_critic_score.
+
     SELECT year, avg_critic_score
     FROM top_critic_years
     WHERE year NOT IN
@@ -108,6 +113,7 @@ year	avg_critic_score
 -- which I aliased and rounded. 
 -- I focused only on years with more than four reviewed games, grouped the data by year, 
 -- and ordered it by avg_user_score, limiting the results to ten.
+
     SELECT game_sales.year, ROUND(AVG(reviews.user_score),2) AS avg_user_Score, 
            COUNT(game_sales.game) AS num_games
     FROM game_sales
@@ -134,6 +140,7 @@ year	avg_user_score	num_games
 -- 🟡 Task 7
 -- I retrieved the years that appeared in the table of games that the critic 
 -- loved and the games that the players loved.
+
     SELECT year
     FROM top_critic_years_more_than_four_games
     INNER JOIN top_user_years_more_than_four_games
@@ -149,6 +156,7 @@ year
 -- Finally, it was time to calculate the sales in the Best Years of the Videogame
 -- I calculated the total games_sold for each year, which I aliased as 
 -- total_games_sold. Then, I ordered the results accordingly.
+
     SELECT g.year, SUM(g.games_sold) AS total_games_sold
     FROM game_sales g
     WHERE g.year IN 
@@ -170,13 +178,13 @@ year	total_games_sold
 -- I want to now which videogames have the greatest gap between the critic 
 -- and the players reviews.
 
-SELECT g.year, g.game,r.critic_score,r.user_score,ABS(r.critic_score-r.user_score) AS gap_between_review_type
-FROM game_sales AS g
-LEFT JOIN reviews AS r
-USING (game)
-WHERE r.critic_score IS NOT NULL AND r.user_score IS NOT NULL
-ORDER BY gap_between_review_type DESC
-LIMIT 15
+    SELECT g.year, g.game,r.critic_score,r.user_score,ABS(r.critic_score-r.user_score) AS gap_between_review_type
+    FROM game_sales AS g
+    LEFT JOIN reviews AS r
+    USING (game)
+    WHERE r.critic_score IS NOT NULL AND r.user_score IS NOT NULL
+    ORDER BY gap_between_review_type DESC
+    LIMIT 15
 
 year	game	critic_score	user_score	gap_between_review_type
 2019	FIFA 20 for PS4	7.90	1.10	6.80

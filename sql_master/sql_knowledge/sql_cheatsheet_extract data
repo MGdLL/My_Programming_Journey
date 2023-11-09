@@ -37,8 +37,8 @@
     FROM x
   
   -- COUNT DISTINCT (returns the count, a number, of all different values)
-  (count(*) - takes into account ALL values, including null)
-  (count(y1) - takes into account ONLY NOT NULL values)
+  -- (count(*) - takes into account ALL values, including null)
+  -- (count(y1) - takes into account ONLY NOT NULL values)
     SELECT COUNT(DISTINCT(y1))
     FROM x
   
@@ -55,7 +55,7 @@
     FROM x
     WHERE y1 IN (´value1´, ´value2´);
   
-  Operators:
+  -- Operators:
     > greater than or after
     < smaller than or before
     >=
@@ -126,9 +126,9 @@
     FROM x
   
   -- ARITHMETIC CALCULATIONS (+, -, *, and /. Calculates between values of the same row, 
-  the last summarizing formula calculates between values of the same column)
+  -- the last summarizing formula calculates between values of the same column)
     SELECT (4.0/3.0);
-  Aliases defined in the SELECT clause can not be used in the WHERE clause due to order of execution
+  -- Aliases defined in the SELECT clause can not be used in the WHERE clause due to order of execution
   
   -- ORDER BY
     SELECT y1, y2

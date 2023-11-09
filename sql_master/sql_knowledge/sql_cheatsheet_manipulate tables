@@ -1,10 +1,10 @@
 --- JOINING DATA
 
 -- INNER JOIN. (left) (only shows the values of the left table that match the values of the right, 
-all the rest disappears, including the ones from the left that do not match any of the right values) 
-(x1 is the LEFT table, x2 the right)(y1 and y2 must be equivalent)(you can use USING instead of ON if 
-the names of both columns are the same) (if you alias a table you must use the alias name on the SELECT line)
-(It can return duplicated rows, not like intersect)
+-- all the rest disappears, including the ones from the left that do not match any of the right values) 
+-- (x1 is the LEFT table, x2 the right)(y1 and y2 must be equivalent)(you can use USING instead of ON if 
+-- the names of both columns are the same) (if you alias a table you must use the alias name on the SELECT line)
+-- (It can return duplicated rows, not like intersect)
 
   SELECT 1.y1, 1.y2, 2.y2, y3
   FROM X1 AS 1
@@ -19,7 +19,7 @@ the names of both columns are the same) (if you alias a table you must use the a
   WHERE 1.y1=1
   ORDER BY 1.y1;
 
-  (you can inner join several tables)
+  -- (you can inner join several tables)
   SELECT 1.y1, 1.y2, 2.y2, y3
   FROM X1 AS 1
   INNER JOIN X2 AS 2
@@ -28,7 +28,7 @@ the names of both columns are the same) (if you alias a table you must use the a
   USING (y);
 
 -- LEFT JOIN (takes all values from the left table and searches for their matches on the right table. If it does not find a match value,
-it still maintains the value of the left but writes 'null' on the column that came from the right table)
+-- it still maintains the value of the left but writes 'null' on the column that came from the right table)
   SELECT 1.y1, 1.y2, 2.y2, y3
   FROM X1 AS 1
   LEFT JOIN X2 AS 2
@@ -45,15 +45,15 @@ it still maintains the value of the left but writes 'null' on the column that ca
   WHERE 1.y1=1;
 
 -- CROSS JOIN (takes each value from each column from the first table and crosses them with each value from each column from the second table. 
-If we have 2 values in the first table and 4 in the second we would end with 8 values. Works kind like Mendel Peas)
+-- If we have 2 values in the first table and 4 in the second we would end with 8 values. Works kind like Mendel Peas)
 (We do not use USING or ON here)
   SELECT y1, y2
   FROM x1
   CROSS JOIN x2;
-Example: "Look at possible combinations of languages that COULD HAVE BEEN spoken in the two countries given their history"
+-- Example: "Look at possible combinations of languages that COULD HAVE BEEN spoken in the two countries given their history"
 
 -- SELF JOIN (table joins with itself) (results are pairs of each field of both tables that have the same field in the column that we 
-used to pair them, on/using) (we should clean rows where data from both columns are the same using WHERE <>)
+-- used to pair them, on/using) (we should clean rows where data from both columns are the same using WHERE <>)
   SELECT    
     p1.country AS country1, 
     p2.country AS country2, 
@@ -64,7 +64,7 @@ used to pair them, on/using) (we should clean rows where data from both columns 
 
 
 -- SET OPERATIONS (another way of joining data but in this case, you paste one table to another, the fields from the columns used 
-to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COLUMNS)
+-- to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COLUMNS)
 
     ORIGINAL          INNER JOIN        UNION
     x1.y1  x2.y1      x1.y1  x2.y1      x1.y1  x2.y1
@@ -72,8 +72,8 @@ to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COL
     2      3          3      3          2
     3      3                            3
 
-    - UNION (copy and paste one table above the other, but if combinations of values are repeated, it eliminates them)
-    - UNION ALL (copy and paste one table above the other)
+    -- UNION (copy and paste one table above the other, but if combinations of values are repeated, it eliminates them)
+    -- UNION ALL (copy and paste one table above the other)
         SELECT monarch AS leader, country
         FROM monarchs
         UNION 
@@ -81,7 +81,7 @@ to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COL
         FROM prime_ministers
         ORDER BY country, leader
         LIMIT 10;
-    - INTERSECT (copy and paste one table above the other, but only it takes rows that are the same in both tables)
+    -- INTERSECT (copy and paste one table above the other, but only it takes rows that are the same in both tables)
         SELECT monarch AS leader, country
         FROM monarchs
         INTERSECT 
@@ -89,8 +89,8 @@ to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COL
         FROM prime_ministers
         ORDER BY country, leader
         LIMIT 10;
-    - EXCEPT (copy and paste one table above the other, but only maintain rows that are in the left table that do not
-      match entirely with the right table)
+    -- EXCEPT (copy and paste one table above the other, but only maintain rows that are in the left table that do not
+    -- match entirely with the right table)
 
 
 
@@ -115,7 +115,7 @@ to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COL
         WHERE indep_year <1800);
 
 -- Where can you add subqueries?
-  - INSIDE <WHERE> (conditions for all data that you query)
+  -- INSIDE <WHERE> (conditions for all data that you query)
       SELECT name, country_code, urbanarea_pop
       FROM cities
       WHERE name IN
@@ -131,14 +131,14 @@ to join the tables do not need to be the same) (MUST HAVE THE SAME NUMBER OF COL
          WHERE year = 2015) 
           AND year = 2015;
 
-  - INSIDE <SELECT> (conditions for an specific column that you select in the select line)
+  -- INSIDE <SELECT> (conditions for an specific column that you select in the select line)
       SELECT DISTINCT continent,    
         (SELECT COUNT(*)
         FROM monarchs
         WHERE states.continent = monarch.continent) AS monarch_count
       FROM states;
 
-  - INSIDE <FROM>
+  -- INSIDE <FROM>
       SELECT DISTINCT monarchs.continent, sub.most_recent
       FROM monarchs,        
         (SELECT continent, MAX(indep_year) AS most_recent
