@@ -178,7 +178,8 @@ year	total_games_sold
 -- I want to now which videogames have the greatest gap between the critic 
 -- and the players reviews.
 
-    SELECT g.year, g.game,r.critic_score,r.user_score,ABS(r.critic_score-r.user_score) AS gap_between_review_type
+    SELECT g.year, g.game,r.critic_score,r.user_score,
+           ABS(r.critic_score-r.user_score) AS gap_between_review_type
     FROM game_sales AS g
     LEFT JOIN reviews AS r
     USING (game)
