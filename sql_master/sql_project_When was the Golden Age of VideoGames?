@@ -1,4 +1,5 @@
 -- 👉🏻 Data Source: https://www.kaggle.com/datasets/holmjason2/videogamedata
+-- 👉🏻 Goal: To determine which years had the best realising videogames both for the critic and the players.
 
 -- 🟡 Task 1: 
 -- I started finding the top ten best-selling video games in the game_sales dataset.
