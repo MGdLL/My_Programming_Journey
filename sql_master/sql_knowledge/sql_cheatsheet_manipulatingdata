@@ -14,11 +14,31 @@
   GROUP BY new_column;
 
   -- you can also enter CASE uses inside WHERE clause
-  SELECT *
-  FROM x
-  WHERE 
-      CASE WHEN y > 5 THEN 'Keep'
-           WHEN y <= 5 THEN 'Exclude' END = 'z';
+    SELECT *
+    FROM x
+    WHERE 
+        CASE WHEN y > 5 THEN 'Keep'
+             WHEN y <= 5 THEN 'Exclude' END = 'z';
+
+  -- you can also use other functions before CASE clause for returning different values to your new column
+    SELECT y1, y2,
+    COUNT(CASE WHEN y1 = 8650 AND y2 > y3 
+          THEN 'z1' END) AS name1,
+    COUNT(CASE WHEN y1 = 8650 AND y2 > y3 
+          THEN 'z1' END) AS name2,
+    FROM x
+    GROUP BY name1;
+
+    SELECT y1, y2,
+    AVG(CASE WHEN y1 = 8650 AND y2 > y3 
+          THEN 'z1' END) AS name1,
+    AVG(CASE WHEN y1 = 8650 AND y2 > y3 
+          THEN 'z1' END) AS name2,
+    FROM x
+    GROUP BY name1;
+
+
+
 
 
 
