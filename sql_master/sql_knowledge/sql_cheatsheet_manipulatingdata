@@ -46,5 +46,12 @@
     GROUP BY name1;
 
 
+-- SUBQUERIES (when you do not want to mix data between tables 
+-- but you need to filter based in data that there is in another table)
+  SELECT y1
+  FROM x1
+  WHERE y2 NOT IN
+       (SELECT DISTINCT y1  FROM x2);
+
 
 
