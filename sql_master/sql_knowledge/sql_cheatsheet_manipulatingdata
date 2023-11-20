@@ -1,0 +1,19 @@
+-- TOPICS
+-- CASEstatements
+-- Simplesubqueries
+-- Correlatedsubqueries
+-- Windowfunctions
+
+-- CASE (to create a new columna whose statement is: if something is x, then y)
+  SELECT y,
+  CASE  WHEN y = 1 THEN 'a'      
+        WHEN y = 2 THEN 'b'     
+        ELSE 'c' END AS new_column
+  FROM x
+  WHERE y2=2
+  GROUP BY new_column;
+
+
+
+
+
