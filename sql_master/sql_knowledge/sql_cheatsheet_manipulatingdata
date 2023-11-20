@@ -37,7 +37,13 @@
     FROM x
     GROUP BY name1;
 
-
+    SELECT y1, y2,
+    ROUND(AVG(CASE WHEN y1 = 8650 AND y2 > y3 
+          THEN 'z1' END) AS name1,
+    ROUND(AVG(CASE WHEN y1 = 8650 AND y2 > y3 
+          THEN 'z1' END) AS name2,
+    FROM x
+    GROUP BY name1;
 
 
 
