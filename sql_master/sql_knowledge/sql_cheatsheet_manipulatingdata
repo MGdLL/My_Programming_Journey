@@ -1,19 +1,24 @@
--- TOPICS
--- CASEstatements
--- Simplesubqueries
--- Correlatedsubqueries
--- Windowfunctions
+--- TOPICS
+-- CASE statements
+-- Simple subqueries
+-- Correlated subqueries
+-- Window functions
 
 -- CASE (to create a new columna whose statement is: if something is x, then y)
   SELECT y,
-  CASE  WHEN y = 1 THEN 'a'      
-        WHEN y = 2 THEN 'b'     
+  CASE  WHEN y = 1  AND y2>1 THEN 'a'      
+        WHEN y = 2 AND y2>1 THEN 'b'     
         ELSE 'c' END AS new_column
   FROM x
   WHERE y2=2
   GROUP BY new_column;
 
-
+  -- you can also enter CASE uses inside WHERE clause
+  SELECT *
+  FROM x
+  WHERE 
+      CASE WHEN y > 5 THEN 'Keep'
+           WHEN y <= 5 THEN 'Exclude' END = 'z';
 
 
 
