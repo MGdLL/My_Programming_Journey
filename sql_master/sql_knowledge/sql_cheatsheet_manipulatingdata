@@ -51,7 +51,7 @@
   SELECT y1
   FROM x1
   WHERE y2 NOT IN
-       (SELECT DISTINCT y1  FROM x2);
+       (SELECT DISTINCT y1  FROM x2); 
 
 
 
