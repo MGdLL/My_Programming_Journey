@@ -98,5 +98,43 @@
     	-- Filter the main query using the subquery
     	s.avg_goals > (SELECT AVG(home_goal + away_goal) 
                        FROM match WHERE season = '2012/2013');
-  
+
+
+
+-- CORRELATED QUERIES
+
+SELECT
+	-- Select the season and max goals scored in a match
+	season,
+    max(home_goal + away_goal) AS max_goals,
+    -- Select the overall max goals scored in a match
+   (SELECT max(home_goal + away_goal) FROM match) AS overall_max_goals,
+   -- Select the max number of goals scored in any match in July
+   (SELECT max(home_goal + away_goal) 
+    FROM match
+    WHERE date IN (
+          SELECT date FROM match WHERE EXTRACT(MONTH FROM date) = 07)) AS july_max_goals
+FROM match
+GROUP BY season;
+
+
+
+-- CTE
+
+-- Set up your CTE
+WITH match_list AS (
+    SELECT 
+  		country_id, 
+  		id
+    FROM match
+    WHERE (home_goal + away_goal) >= 10)
+-- Select league and count of matches from the CTE
+SELECT
+    l.name AS league,
+    COUNT(match_list.id) AS matches
+FROM league AS l
+-- Join the CTE to the league table
+LEFT JOIN match_list 
+ON l.id = match_list.country_id
+GROUP BY l.name;
 
