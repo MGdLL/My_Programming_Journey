@@ -4,7 +4,7 @@
 -- Correlated subqueries
 -- Window functions
 
--- CASE (to create a new columna whose statement is: if something is x, then y)
+-- CASE (to create a new column whose statement is: if something is x, then y)
   SELECT y,
   CASE  WHEN y = 1  AND y2>1 THEN 'a'      
         WHEN y = 2 AND y2>1 THEN 'b'     
@@ -120,21 +120,65 @@ GROUP BY season;
 
 
 -- CTE
+	-- Set up your CTE
+	WITH match_list AS (
+	    SELECT 
+	  		country_id, 
+	  		id
+	    FROM match
+	    WHERE (home_goal + away_goal) >= 10)
+	-- Select league and count of matches from the CTE
+	SELECT
+	    l.name AS league,
+	    COUNT(match_list.id) AS matches
+	FROM league AS l
+	-- Join the CTE to the league table
+	LEFT JOIN match_list 
+	ON l.id = match_list.country_id
+	GROUP BY l.name;
 
--- Set up your CTE
-WITH match_list AS (
-    SELECT 
-  		country_id, 
-  		id
-    FROM match
-    WHERE (home_goal + away_goal) >= 10)
--- Select league and count of matches from the CTE
-SELECT
-    l.name AS league,
-    COUNT(match_list.id) AS matches
-FROM league AS l
--- Join the CTE to the league table
-LEFT JOIN match_list 
-ON l.id = match_list.country_id
-GROUP BY l.name;
+
+-- WINDOW FUNCTIONS (you cannot create a query where you mix aggregate (avg(y1)) and
+-- not aggregate (y1) columns. Instead of creating a subquery in select, you can
+-- use over to make the query understand that you want that aggregated value across 
+-- all your rows. It is read after all query's clauses, but before order by.
+
+	SELECT
+		date,    
+		(home_goal + away_goal) AS goals,
+		AVG(home_goal + away_goal) OVER() AS overall_avg
+	FROMmatch
+	WHERE season = '2011/2012'
+
+-- Use that instead of:
+	SELECT
+		date,    
+		(home_goal + away_goal) AS goals,
+		(SELECT
+			AVG(home_goal + away_goal) 
+			FROM match
+			WHERE season = '2011/2012') AS overall_avg
+	FROM match
+	WHERE season = '2011/2012'
+
+
+-- WINDOW PARTITIONS. PARTITION BY (in case you can that aggregate function to be 
+-- calculated by row!!!!!!!!!!!!
+
+	SELECT
+		date,    
+		(home_goal + away_goal) AS goals,
+		AVG(home_goal + away_goal) OVER(PARTITION BY season) AS season_avg
+	FROM match;
+
+
+-- SLIDING WINDOW (it is used to calculate aggregate data between an specific rows)
+
+	SELECT date,  
+		home_goal,  
+		away_goal,
+		SUM(home_goal) OVER(ORDER BYdate ROWS BETWEEN
+			UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total
+	FROM match 
+	WHERE hometeam_id = 8456 AND season = '2011/2012'
 
