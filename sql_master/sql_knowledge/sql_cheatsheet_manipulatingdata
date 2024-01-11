@@ -2,7 +2,7 @@
 -- CASE statements
 -- Simple subqueries
 -- Correlated subqueries
--- Window functions
+-- Window functions 
 
 -- CASE (to create a new column whose statement is: if something is x, then y)
   SELECT y,
