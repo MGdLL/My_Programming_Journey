@@ -44,7 +44,7 @@
           THEN 'z1' END) AS name2,
     FROM x
     GROUP BY name1;
-
+ 
 
 -- SUBQUERIES (when you do not want to mix data between tables 
 -- but you need to filter based in data that there is in another table)
