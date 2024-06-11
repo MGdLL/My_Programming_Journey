@@ -6,6 +6,7 @@ The purpose of this repository is to expand my Data Analysis and Data Scientist 
 
 To do so, I am currently learning and doing projects about these different languages:
 - SQL
+- Python
 - DAX for Power BI
 
 I upload ✨daily content✨. Check what I am up to! 👩‍💻
