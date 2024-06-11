@@ -1,2 +1,18 @@
 # you use "#" for writing annotations
 # Remember, = in Python means assignment, it doesn't test equality!
+
+# FUNCTIONS
+
+  print() 
+  #to launch the function inside the parenthesis
+  
+  type()
+  # to know the type of variable (sting, boolean...).
+  
+  str(), int(), float(), bool()
+  # to transform the variable into a string, integer, float number or boolean.
+  # For adding strings with integers, first you need to transform those integers in strings like:
+    #print("I started with $" + str(savings) + " and now have $" + str(total_savings) + ". Awesome!")
+    # Result: I started with $100 and now have $150. Awesome!
+
+
