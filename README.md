@@ -9,4 +9,4 @@ To do so, I am currently learning and doing projects about these different langu
 - Python
 - DAX for Power BI
 
-I upload ✨daily content✨. Check what I am up to! 👩‍💻
+Check what I am up to! 👩‍💻
