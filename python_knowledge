@@ -9,10 +9,29 @@
   type()
   # to know the type of variable (sting, boolean...).
   
-  str(), int(), float(), bool()
+  str(), int(), float(), bool(), list()
   # to transform the variable into a string, integer, float number or boolean.
   # For adding strings with integers, first you need to transform those integers in strings like:
     #print("I started with $" + str(savings) + " and now have $" + str(total_savings) + ". Awesome!")
     # Result: I started with $100 and now have $150. Awesome!
 
 
+# LISTS & SUBLISTS
+# you can enter whatever type of variable inside and mix them. You must use [] 
+# Here is an example of a list with a sublist
+
+fam=[[1.86, 'dad'], [1.67, 'mom']]
+
+  # SUBSETTLING LISTS - to select a specific variable inside your list
+  # The first value counts as 0, so if you want the 5th value you must put 4
+
+  fam = [1.86, 'dad', 1.67, 'mom']
+  fam2 = fam [2] ---> 1.67
+  fam2 = fam [-3] ---> 'dad'
+
+  # LIST SLICING - to select multiple values inside your list. They return all values between the positions you give them
+  fam [start:end] 
+  fam2 = fam [1:3] ---> 'dad', 1.67,'mom
+
+  #LIST CALCULATIONS
+  fam2=(fam[1]+fam[3]) ---> 'dadmom'
