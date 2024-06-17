@@ -33,6 +33,8 @@ fam=[[1.86, 'dad'], [1.67, 'mom']]
   # LIST SLICING - to select multiple values inside your list. They return all values between the positions you give them
   fam [start:end] 
   fam2 = fam [1:3] ---> 'dad', 1.67,'mom
+  # you can omit the ¨start¨ and it will understand that the series must start at the first value. The same with omitting the ¨end¨ but it will continue until the end
+  fam [:1] --> 1,86dad
 
   #LIST CALCULATIONS
   fam2=(fam[1]+fam[3]) ---> 'dadmom'
