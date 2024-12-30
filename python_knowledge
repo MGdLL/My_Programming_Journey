@@ -36,5 +36,28 @@ fam=[[1.86, 'dad'], [1.67, 'mom']]
   # you can omit the ¨start¨ and it will understand that the series must start at the first value. The same with omitting the ¨end¨ but it will continue until the end
   fam [:1] --> 1,86dad
 
+  #you can use it also to COPY A LIST so you can make other changes without compromising the original table:
+  areas = [11.25, 18.0, 20.0, 10.75, 9.50]
+  areas_copy = list(areas) #this change creates a copy of the table "areas", so the next change does not apply to the original but only to areas_copy
+  areas_copy[0] = 5.0
+  # if you use areas_copy=areas, all subsequent changes would affect to the original table "areas" SO DO NOT DO IT THIS WAY
+
+  
   #LIST CALCULATIONS
   fam2=(fam[1]+fam[3]) ---> 'dadmom'
+
+  #CHANCHING LIST ELEMENTS - for changing elements in your list
+  fam = [1.86, 'dad', 1.67, 'mom']
+  fam [1] = 'daddy'
+  fam = [1.86, 'daddy', 1.67, 'mom']
+
+  #ADDING LIST ELEMENTS
+  fam = [1.86, 'dad', 1.67, 'mom']
+  fam_ext = fam + ['me',1.67]
+  fam_ext = [1.86, 'daddy', 1.67, 'mom','me',1.67]
+
+  #DELETING LIST ELEMENTS - for deleting a specific element on your list using the index. You cannot use negative indexing or ":" for selecting more elements at once
+  fam = [1.86, 'dad', 1.67, 'mom']
+  fam_ext= del fam[2]
+  fam_ext = [1.86, 'daddy', 'mom','me',1.67]
+  
