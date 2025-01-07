@@ -1,0 +1,9 @@
+#NUMPY
+
+#ARRAY - for calculating using numpy you first have to transform a list in a numpy array
+
+import numpy as np
+heigh_calculation = np.array(heigh)
+
+heigh_multiply = heigh_calculation * 2
+
