@@ -79,3 +79,10 @@ fam.index("mom")
 4
 
 
+
+#PACKAGES -to inport a package that allows you to do specific calculations. Write the package before de spacific calculation using brackets to refer to the kist that you want to change.
+
+import numpy as np
+areas_sample= np.array(areas)
+
+
