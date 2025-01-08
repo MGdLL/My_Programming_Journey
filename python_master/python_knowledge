@@ -17,6 +17,15 @@
     # Result: I started with $100 and now have $150. Awesome!
 
 
+#INDEX
+
+# Print out the weight at index 50
+print(np_weight_lb[50])
+
+# Print out sub-array of np_height_in: index 100 up to and including index 110
+print(np_height_in[100:110])
+
+
 # LISTS & SUBLISTS
 # you can enter whatever type of variable inside and mix them. You must use [] 
 # Here is an example of a list with a sublist
@@ -84,5 +93,8 @@ fam.index("mom")
 
 import numpy as np
 areas_sample= np.array(areas)
+
+
+
 
 
