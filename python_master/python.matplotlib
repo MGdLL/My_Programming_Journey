@@ -7,6 +7,11 @@ import matplotlib.pyplot as plt
 ## GRAPHICS
 
 #LINE PLOT
-
 plt.plot(x,y) #for dertermine exes from the plot
 plt.show() #for showing the plot. You do not need to enter anything inside these parentheses 
+
+
+#SCATTER PLOT
+import matplotlib.pyplot as plt
+plt.scatter(x,y)
+plt.show()
