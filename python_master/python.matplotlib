@@ -15,3 +15,6 @@ plt.show() #for showing the plot. You do not need to enter anything inside these
 import matplotlib.pyplot as plt
 plt.scatter(x,y)
 plt.show()
+
+#for transforming one of the exes into a logarithmic scale use:
+plt.xscale('log')
