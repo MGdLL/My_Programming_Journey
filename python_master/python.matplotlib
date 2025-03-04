@@ -20,4 +20,15 @@ plt.show()
 plt.xscale('log')
 
 
+#TITLE & LABELS
+#Add axis labels
+plt.xlabel(xlab)
+plt.ylabel(ylab)
+
+
+# Add title
+plt.title(hi)
+
+
+
 #HISTOGRAMS
