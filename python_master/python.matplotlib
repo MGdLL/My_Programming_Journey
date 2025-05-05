@@ -19,6 +19,19 @@ plt.show()
 #for transforming one of the exes into a logarithmic scale use:
 plt.xscale('log')
 
+#Example (LINE GRAPHIC)
+import matplotlib.pyplot as plt
+year = [1950,1970,1990,2010]
+pop = [21519,3692,5263,6972]
+plt.plot(year,pop)
+plt.show
+
+#Example (DOTS GRAPHIC)
+import matplotlib.pyplot as plt
+year = [1950,1970,1990,2010]
+pop = [21519,3692,5263,6972]
+plt.scatter(year,pop)
+plt.show
 
 #TITLE & LABELS
 #Add axis labels
@@ -27,8 +40,13 @@ plt.ylabel(ylab)
 
 
 # Add title
-plt.title(hi)
+plt.title('hi')
 
+#CUSTOMIZING VALUES AT EXE X ( This function customizes the x-axis ticks by setting them at the positions specified in tick_val 
+and labeling them with tick_lab. This makes the plot more readable by providing clear, concise labels for the tick marks.
+tick_val = [1000, 10000, 100000]
+tick_lab = ['1k', '10k', '100k']
+plt.xticks(tick_val,tick_lab)
 
 
 #HISTOGRAMS
