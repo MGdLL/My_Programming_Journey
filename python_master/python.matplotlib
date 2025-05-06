@@ -33,17 +33,25 @@ pop = [21519,3692,5263,6972]
 plt.scatter(year,pop)
 plt.show
 
-#in this case for adding the size of the bubbles:
-  # Import numpy as np
-  import numpy as np
-  # Store pop as a numpy array: np_pop
-  np_pop = np.array(pop)
-  # Double np_pop
-  np_pop = np_pop*2
-  # Update: set s argument to np_pop
-  plt.scatter(gdp_cap, life_exp, s = pop)
+  #in this case for adding the size of the bubbles:
+    # Import numpy as np
+    import numpy as np
+    # Store pop as a numpy array: np_pop
+    np_pop = np.array(pop)
+    # Double np_pop
+    np_pop = np_pop*2
+    # Update: set s argument to np_pop
+    plt.scatter(gdp_cap, life_exp, s = pop)
+  
+  # in this case for adding the colour of the bubbles (c) and transparency (alpha)
+  plt.scatter(x = gdp_cap, y = life_exp, s = np.array(pop) * 2, c=col, alpha=0.8)
+  
+  # Additional customizations
+  plt.text(1550, 71, 'India')
+  plt.text(5700, 80, 'China')
 
-
+  # Add grid() call (lines of the graphic)
+  plt.grid(True)
 
 #TITLE & LABELS
 #Add axis labels
