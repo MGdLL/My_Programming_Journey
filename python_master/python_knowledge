@@ -25,6 +25,19 @@ print(np_weight_lb[50])
 # Print out sub-array of np_height_in: index 100 up to and including index 110
 print(np_height_in[100:110])
 
+#CREATE AN INDEX
+pop = [30.55, 2.77, 39.21]
+countries = ["afghanistan", "albania", "algeria"]
+ind_alb = countries.index("albania")
+print(ind_alb)
+--
+1
+
+print(pop[ind_alb])
+--
+2.77
+
+
 
 # LISTS & SUBLISTS
 # you can enter whatever type of variable inside and mix them. You must use [] 
