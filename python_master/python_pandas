@@ -1,1 +1,35 @@
+##REMEMBER
+
+#CREATE AN INDEX
+  pop = [30.55, 2.77, 39.21]
+  countries = ["afghanistan", "albania", "algeria"]
+  ind_alb = countries.index("albania")
+  print(ind_alb)
+  --
+  1
+  
+  print(pop[ind_alb])
+  --
+  2.77
+
+#CREATE A DICTIONARY
+  # Definition of countries and capital
+  countries = ['spain', 'france', 'germany', 'norway']
+  capitals = ['madrid', 'paris', 'berlin', 'oslo']
+  
+  # From string in countries and capitals, create dictionary europe. REMEMBER TO USE SPACES BETWEEN THE COMPONENTS OF THE DICTIONARY
+  europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin', 'norway':'oslo' }
+
+  # Print europe
+  print(europe)
+
+#PRINT KEYS (e.g.countries) & VALUES (e.g.capitals) OF THE DICTIONARY
+  #KEYS
+  capitals=europe.keys()
+  print(capitals)
+  
+  #VALUE
+  print(europe['norway'])
+
+
 
