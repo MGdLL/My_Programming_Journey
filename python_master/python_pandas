@@ -79,9 +79,11 @@
   import pandas as pd
   
   # Create dictionary my_dict with three key:value pairs: my_dict
-  my_dict={'country':['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt'],
-          'drives_right':[True, False, False, False, True, True, True],
-          'cars_per_cap':[809, 731, 588, 18, 200, 70, 45]}
+    import pandas as pd
+    names = ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt']
+    dr = [True, False, False, False, True, True, True]
+    cpc = [809, 731, 588, 18, 200, 70, 45]
+    my_dict = {'country': names, 'drives_right': dr, 'cars_per_cap': cpc}
   
   # Build a DataFrame cars from my_dict: cars
   cars=pd.DataFrame(my_dict)
@@ -108,3 +110,20 @@
   
   #If you want the first column to be your index
   cars = pd.read_csv('cars.csv', index_col=0)
+
+#SELECT COLUMNS AND ROWS ON DATAFRAMES
+
+  #SERIES - If you use brackes as in numpy to slect an specific column of a data frame you could get a series
+  print(cars['country']) - select columns and create a series
+  print(cars[0:3]) - select rows and create a series. REMEMBER HERE WILL SHOW YOU THE ROW 1,2 & 3!!!!!!
+
+  #DATAFRAME - to select specific rows and columna and maintain the dataframe structure you must use doubel brackets or loc.or iloc
+  print(cars[['country']]) - select columns and create a dataframe
+  print(cars[3:6]) - select rows and create a data frame. REMEMBER HERE WILL SHOW YOU THE ROW 4,5 & 6!!!!!!
+
+  -or-
+
+  print(cars.loc['MOR', 'drives_right']) - prints row morocco and column drive_right
+  print(cars.loc[['RU', 'MOR'], ['country', 'drives_right']]) - for more rows and columns. IT IS CALLED SUBDATAFRAME!!
+  
+  
