@@ -72,6 +72,7 @@
 
 
 
+#PANDAS
 ## DICTIONARY DATA FRAME WITH PANDAS. Pandas is an open source library, providing high-performance, easy-to-use data structures and data analysis tools for Python. 
 
 #CREATE A DICTIONARY AND DATA FRAME
@@ -113,17 +114,21 @@
 
 #SELECT COLUMNS AND ROWS ON DATAFRAMES
 
-  #SERIES - If you use brackes as in numpy to slect an specific column of a data frame you could get a series
+  #SERIES - If you use brackes as in numpy to select an specific column of a data frame you could get a series
   print(cars['country']) - select columns and create a series
   print(cars[0:3]) - select rows and create a series. REMEMBER HERE WILL SHOW YOU THE ROW 1,2 & 3!!!!!!
 
   #DATAFRAME - to select specific rows and columna and maintain the dataframe structure you must use doubel brackets or loc.or iloc
   print(cars[['country']]) - select columns and create a dataframe
   print(cars[3:6]) - select rows and create a data frame. REMEMBER HERE WILL SHOW YOU THE ROW 4,5 & 6!!!!!!
-
+  datacamp.iloc[[1, 2], [2]] - select ROW 2 & 3!!! (is different than using ':') AND COLUMN 3!!! (REMEMBER INDEX DOES NOT COUNT AS A COLUMN)
   -or-
 
   print(cars.loc['MOR', 'drives_right']) - prints row morocco and column drive_right
   print(cars.loc[['RU', 'MOR'], ['country', 'drives_right']]) - for more rows and columns. IT IS CALLED SUBDATAFRAME!!
-  
+  print(cars.loc[:, ['drives_right']]) - prints ONLY column drives_right
+  print(cars.loc[:,['cars_per_cap', 'drives_right']]) - prints ONLY these two columns
+
+
+
   
