@@ -113,6 +113,8 @@
   cars = pd.read_csv('cars.csv', index_col=0)
 
 #SELECT COLUMNS AND ROWS ON DATAFRAMES
+  #Single square brackets ([]) return a Pandas Series.
+  #Double square brackets ([[]]) return a Pandas DataFrame.
 
   #SERIES - If you use brackes as in numpy to select an specific column of a data frame you could get a series
   print(cars['country']) - select columns and create a series
