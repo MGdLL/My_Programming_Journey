@@ -133,4 +133,35 @@
 
 
 
+#OPERATORS
+
+  #COMPARISON OPERATORS
+  >,<,>=,<=,!=, ==
+ 
+  #BOOLEAN OPERATORS (AND, OR)
+  import numpy as np
+  my_house = np.array([18.0, 20.0, 10.75, 9.50])
+  print(np.logical_or(my_house > 18.5, my_house < 10))
+  
+  #CONDITIONAL STATEMENTS (IF, ELIF, ELSE)
+
+  #IF
+    z = 5
+    if z % 2 == 0 : #this checks if the number z is even
+      print("z is even")
+    ---
+    z is even
+
+  #ELIF & ELSE
+    area = 10.0
+    if(area < 9) :
+        print("small")
+    elif(area < 12) :
+        print("medium")
+    else :
+        print("large")
+    ---
+    medium
+
+
   
