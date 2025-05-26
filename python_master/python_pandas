@@ -101,7 +101,7 @@
   row_labels = ['US', 'AUS', 'JPN', 'IN', 'RU', 'MOR', 'EG']
   
   # Specify row labels of cars
-  cars.index=row_labels
+  cars.index = row_labels
   
   # Print cars again
   print(cars)
@@ -176,17 +176,57 @@
   brics[np.logical_and(brics["area] > 8, brics["area"] < 10)] - using boolean operators
 
 
+    pregunta chat gpt pro los diferentes tipos de datos que hay aquí
+    # Import cars data
+    import pandas as pd
+    cars = pd.read_csv('cars.csv', index_col = 0)
+    
+    # Create car_maniac: observations that have a cars_per_cap over 500
+    cpc = cars["cars_per_cap"]
+    many_cars = cpc > 500
+    car_maniac = cars[many_cars]
+    
+    # Print car_maniac
+    print(car_maniac)
 
-pregunta chat gpt pro los diferentes tipos de datos que hay aquí
-# Import cars data
-import pandas as pd
-cars = pd.read_csv('cars.csv', index_col = 0)
 
-# Create car_maniac: observations that have a cars_per_cap over 500
-cpc = cars["cars_per_cap"]
-many_cars = cpc > 500
-car_maniac = cars[many_cars]
+  #WHILE - another operator
+    # Initialize offset
+     offset = -6
+    
+    # Code the while loop
+    while offset != 0 :
+        print("correcting...")
+        if offset > 0 :
+            offset = offset - 1
+        else :
+            offset = offset + 1
+        print(offset)
 
-# Print car_maniac
-print(car_maniac)
-  
+  # FOR
+    # USING NORMAL FOR
+      fam = [1.73, 1.68, 1.71, 1.89]
+      for height in fam : 
+          print(height)
+
+    # USING FOR WITH AN INDEX
+      fam = [1.73, 1.68, 1.71, 1.89]
+      for index, height in enumerate(fam) :
+          print("person " + str(index) + ": " + str(height))
+      ------
+      room 0: 11.25
+      room 1: 18.0
+      room 2: 20.0
+      room 3: 10.75
+      room 4: 9.5
+      
+    #if you want to delete row 0 and move one row, write:
+      # areas list
+      areas = [11.25, 18.0, 20.0, 10.75, 9.50]
+      
+      # Code the for loop
+      for index, area in enumerate(areas) :
+          print("room " + str(index + 1) + ": " + str(area)
+
+    #LOOP OVER LIST OF LISTS
+    
