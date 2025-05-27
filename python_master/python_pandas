@@ -223,10 +223,49 @@
     #if you want to delete row 0 and move one row, write:
       # areas list
       areas = [11.25, 18.0, 20.0, 10.75, 9.50]
-      
       # Code the for loop
       for index, area in enumerate(areas) :
-          print("room " + str(index + 1) + ": " + str(area)
+          print("room " + str(index + 1) + ": " + str(area))
+      ---
+     kitchen 2 : 11.25
+    
 
     #LOOP OVER LIST OF LISTS
-    
+      # house list of lists
+      house = [["hallway", 11.25], 
+               ["kitchen", 18.0], 
+               ["living room", 20.0], 
+               ["bedroom", 10.75], 
+               ["bathroom", 9.50]]
+               
+      # Build a for loop from scratch
+      for x in house : 
+          print("the " + x[0] + " is " + str(x[1]) +" sqm")
+      ----
+      the hallway is 11.25 sqm
+      the kitchen is 18.0 sqm
+      the living room is 20.0 sqm
+      the bedroom is 10.75 sqm
+      the bathroom is 9.5 sqm
+
+    #LOOP DATA STRUCTURES
+
+      #ITERATE OVER ALL ELEMENT IN A NUMPY ARRAY (2d numpy array) - we use np.nditer formula
+        for x in np.nditer(np_baseball) :
+          print(x)        
+      
+      #ITERATE OVER KEY-VALUE (dictionary) - we use key value items formula
+      europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin',
+                'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'austria':'vienna' }
+
+      for key, value in europe.items() :
+          print("the capital of " + key + " is " + str(value))
+      ----
+      the capital of spain is madrid
+      the capital of france is paris
+      the capital of germany is berlin
+      the capital of norway is oslo
+      the capital of italy is rome
+      the capital of poland is warsaw
+      the capital of austria is vienna
+      
