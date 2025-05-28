@@ -250,22 +250,47 @@
 
     #LOOP DATA STRUCTURES
 
-      #ITERATE OVER ALL ELEMENT IN A NUMPY ARRAY (2d numpy array) - we use np.nditer formula
+      # ITERATE OVER ALL ELEMENT IN A NUMPY ARRAY (2d numpy array) - we use np.nditer formula
         for x in np.nditer(np_baseball) :
           print(x)        
       
-      #ITERATE OVER KEY-VALUE (dictionary) - we use key value items formula
-      europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin',
-                'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'austria':'vienna' }
-
-      for key, value in europe.items() :
-          print("the capital of " + key + " is " + str(value))
-      ----
-      the capital of spain is madrid
-      the capital of france is paris
-      the capital of germany is berlin
-      the capital of norway is oslo
-      the capital of italy is rome
-      the capital of poland is warsaw
-      the capital of austria is vienna
+      # ITERATE OVER KEY-VALUE (dictionary) - we use key value items formula
+        for key, value in dictionary.items():
+        print(key, value)
+  
+        example:
+        ------
+        europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin',
+                  'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'austria':'vienna' }
+  
+        for key, value in europe.items() :
+            print("the capital of " + key + " is " + str(value))
+        ----
+        the capital of spain is madrid
+        the capital of france is paris
+        the capital of germany is berlin
+        the capital of norway is oslo
+        the capital of italy is rome
+        the capital of poland is warsaw
+        the capital of austria is vienna
       
+    # ITERATE OVER PANDAS DATAFRAMES
+      for lab, row in brics.iterrows() :
+        ...
+
+        example
+        ---
+        # Import cars data
+        import pandas as pd
+        cars = pd.read_csv('cars.csv', index_col = 0)
+        
+        # Iterate over rows of cars
+        for lab, row in cars.iterrows():
+            print(lab)
+            print(row)
+
+      ---
+      for lab, row in cars.iterrows() :
+      print(lab + ": " + str(row['cars_per_cap']))
+
+
