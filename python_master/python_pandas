@@ -303,3 +303,22 @@
     cars["COUNTRY"] = cars["country"].apply(str.upper)
     print(cars)
 
+
+
+#RANDOM NUMBER GENERATION (numpy function)
+  #Random Number Generators (RNGs): You discovered how to use RNGs in Python with the numpy library, understanding the importance of pseudo-random numbers in simulations. For instance, generating a random float between 0 and 1 with np.random.rand().
+  
+  #Setting a Seed: You learned the significance of setting a random seed using np.random.seed(123), ensuring reproducibility in your simulations. This allows for consistent results across runs.
+  
+  #Simulating Dice Rolls: You simulated dice rolls using np.random.randint(1,7), which is crucial for the game's logic where the outcome determines your next move.
+  
+  #Control Structures: You applied if-elif-else statements to simulate the decision-making process based on the dice roll. For example:
+  
+  if dice <= 2:
+      step = step - 1
+  elif dice <= 5:
+      step = step + 1
+  else:
+      step = step + np.random.randint(1,7)
+
+
