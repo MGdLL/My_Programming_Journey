@@ -1,6 +1,10 @@
 
 # you use "#" for writing annotations
 # Remember, = in Python means assignment, it doesn't test equality!
+#for reading a csv as a dataframe so you can work with it in python: 
+import pandas as pd
+import matplotlib.pyplot as plt
+netflix_df = pd.read_csv("netflix_data.csv")
 
 # FUNCTIONS
 
@@ -106,8 +110,6 @@ fam.index("mom")
 
 import numpy as np
 areas_sample= np.array(areas)
-
-
 
 
 
