@@ -6,6 +6,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 netflix_df = pd.read_csv("netflix_data.csv")
 
+IMPORTANT
+Código	Resultado	Tipo
+netflix_df	Todo el conjunto de datos	DataFrame
+mov90_df = netflix_df[...]	Subconjunto filtrado	DataFrame
+mov90_df['duration']	Una sola columna	Series
+mov90_df[['duration']]	Una sola columna, pero en tabla	DataFrame
+
 # FUNCTIONS
 
   print() 
