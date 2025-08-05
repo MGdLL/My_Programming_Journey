@@ -1,0 +1,44 @@
+#[[[[NETFLIX MOVIES]]]]
+
+#1 DETECT AVERAGE DURATION OF MOVIES IN THE 1990s
+
+# Importing pandas and matplotlib
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read in the Netflix CSV as a DataFrame
+netflix_df = pd.read_csv("netflix_data.csv")
+
+# Filter 90s movies
+mov90_df = netflix_df[(netflix_df['release_year'] >= 1990) & (netflix_df['release_year'] <= 1999) & (netflix_df["type"] == "Movie")]
+
+# Select the 'duration' column (already integer)
+duration = mov90_df['duration']
+
+# Create a histogram
+plt.hist(duration)
+plt.title('Distribution of Movie Durations in the 1990s')
+plt.xlabel('Duration (minutes)')
+plt.ylabel('Number of Movies')
+plt.show()
+
+duration = 100
+
+#2 COUNT NUMBER OF MOVIES FROM THE 1990s AND ACTION MOVIES
+# Importing pandas and matplotlib
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read in the Netflix CSV as a DataFrame
+netflix_df = pd.read_csv("netflix_data.csv", index_col = 0)
+
+#Filter short movies with genre "Action"
+short_mov_action_df = netflix_df[(netflix_df['genre'] == 'Action') & (netflix_df['release_year'] >= 1990) & (netflix_df['release_year'] <= 1999)]
+
+#for counting, you can make a loop with iterrows (convierte toda la tabla solo en dos columnas, la primera los títulos de los campos de la primera tabla y la segunda con cada uno de los valores de la primera tabla asociados a esos campos. Así puedes buscar entre esas dos columnas más fácilmente con funciones
+short_movie_count = 0
+for lab, row in short_mov_action_df.iterrows():
+    if row['duration'] < 90:
+        short_movie_count += 1
+
+print(short_movie_count)
