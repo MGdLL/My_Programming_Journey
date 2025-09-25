@@ -1,0 +1,115 @@
+## 📂 Script Code
+
+This is the complete code you need to paste into the Apps Script editor.
+
+> **⚠️ Important:** Remember to replace `'YOUR_API_KEY_HERE'` in the `const API_KEY` line before saving.
+
+```javascript
+// Replace 'YOUR_API_KEY_HERE' with your Gemini API key.
+const API_KEY = 'YOUR_API_KEY_HERE';
+const BATCH_SIZE = 200; // Define the size of each mini-batch.
+
+function processComments() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const dataRange = sheet.getRange("A2:A" + sheet.getLastRow());
+  const comments = dataRange.getValues().flat().filter(String); // Gets comments and removes empty cells.
+  
+  if (comments.length === 0) {
+    SpreadsheetApp.getUi().alert('No comments found to process.');
+    return;
+  }
+  
+  const results = [];
+  const numBatches = Math.ceil(comments.length / BATCH_SIZE);
+  
+  for (let i = 0; i < numBatches; i++) {
+    const start = i * BATCH_SIZE;
+    const end = Math.min((i + 1) * BATCH_SIZE, comments.length);
+    const batch = comments.slice(start, end);
+    
+    // Prompt configuration for classification
+    const prompt = `You are an expert user experience analyst. Your task is to analyze negative comments about the new interface of a banking application and classify them into one of the following categories, listed in order of importance: 
+- User Experience (UI/UX) 
+- ... (add your own categories)
+- Unspecified 
+- Other 
+If a comment fits into more than one category, you must choose the one with the highest importance in the list above. The result must be a JSON array. For each input comment, return a JSON object with the assigned category. 
+Example output format: [ {"categoria": "User Experience (UI/UX)"}, {"categoria": "..."}, {"categoria": "..."} ] 
+Analyze the following comments:
+    ${JSON.stringify(batch)}`;
+
+    try {
+      const response = callGeminiAPI(prompt);
+      
+      if (response && response.candidates && response.candidates.length > 0) {
+        const responseText = response.candidates[0].content.parts[0].text;
+        // Search for the first "[" and last "]" to isolate the JSON array.
+        const jsonMatch = responseText.match(/\[.*\]/s);
+        
+        if (jsonMatch) {
+            const parsedResults = JSON.parse(jsonMatch[0]);
+            results.push(...parsedResults);
+        } else {
+            console.error('API response does not contain a valid JSON array:', responseText);
+        }
+      }
+
+      Utilities.sleep(1000); // 1-second pause to avoid exceeding request limits.
+
+    } catch (e) {
+      console.error("Error processing batch " + (i + 1) + ": " + e);
+      // Add an error result for the failed batch
+      results.push(...batch.map(() => ({categoria: "API Error"})));
+    }
+  }
+  
+  // Write all results at once to Column B
+  // Ensure only the 'categoria' property is written in the array of arrays.
+  const outputRange = sheet.getRange(2, 2, results.length, 1);
+  outputRange.setValues(results.map(r => [r.categoria]));
+  
+  SpreadsheetApp.getUi().alert('Processing complete. ' + comments.length + ' comments were analyzed.');
+}
+
+// ---
+
+function callGeminiAPI(prompt) {
+  // Gemini Pro URL and model.
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
+  
+  const payload = {
+    "contents": [
+      {
+        "parts": [
+          {"text": prompt}
+        ]
+      }
+    ]
+  };
+  
+  const options = {
+    'method': 'post',
+    'contentType': 'application/json',
+    'payload': JSON.stringify(payload)
+  };
+  
+  try {
+    const response = UrlFetchApp.fetch(url, options);
+    const responseText = response.getContentText();
+    return JSON.parse(responseText);
+  } catch (e) {
+    console.error("Error in API call: " + e.message);
+    // Rethrow the error to be caught in processComments
+    throw new Error("API Error: " + e.message);
+  }
+}
+
+// ---
+
+// Creates a custom menu in the spreadsheet to run the function.
+function onOpen() {
+  SpreadsheetApp.getUi()
+      .createMenu('Gemini Tools')
+      .addItem('Process Comments', 'processComments')
+      .addToUi();
+}
