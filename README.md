@@ -1,15 +1,18 @@
-Hi! My name is María,
+👋 Hi! My name is María
 
-Welcome to my Programming Learning Journey.
+Welcome to my Programming Learning Journey 🚀
+The purpose of this repository is to expand my Data Analysis and Data Science skills.
 
-The purpose of this repository is to expand my Data Analysis and Data Scientist skills. 
+📚 What I’m learning
+I am currently focusing on these languages and tools:
+  🐍 Python
+  🗄️ SQL
 
-To do so, I am currently learning and doing projects about these different languages:
-- SQL
-- Python
+🤖 Projects related to AI
+Alongside my learning, I am also building small projects to explore the applications of AI, such as:
+  📝 Script for extracting comments from social media
+  🔍 Automated AI tool for categorizing qualitative data
 
-At the same time, I am working on small projects to expand my skills, especially related to AI:
-- Script for extracting comments from social media.
-- Automated AI tool for categorizing qualitative data
+👩‍💻 Follow my progress
 
-Check what I am up to! 👩‍💻
+Check out what I’m working on and feel free to share feedback!
