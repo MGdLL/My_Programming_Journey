@@ -7,6 +7,9 @@ The purpose of this repository is to expand my Data Analysis and Data Scientist 
 To do so, I am currently learning and doing projects about these different languages:
 - SQL
 - Python
-- DAX for Power BI
+
+At the same time, I am working on small projects to expand my skills, especially related to AI:
+- Script for extracting comments from social media.
+- Automated AI tool for categorizing qualitative data
 
 Check what I am up to! 👩‍💻
