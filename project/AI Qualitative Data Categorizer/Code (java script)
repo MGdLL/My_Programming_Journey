@@ -1,9 +1,5 @@
 ## 📂 Script Code
 
-This is the complete code you need to paste into the Apps Script editor.
-
-> **⚠️ Important:** Remember to replace `'YOUR_API_KEY_HERE'` in the `const API_KEY` line before saving.
-
 ```javascript
 // Replace 'YOUR_API_KEY_HERE' with your Gemini API key.
 const API_KEY = 'YOUR_API_KEY_HERE';
