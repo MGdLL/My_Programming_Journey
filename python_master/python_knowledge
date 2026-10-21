@@ -1,17 +1,6 @@
 
 # you use "#" for writing annotations
 # Remember, = in Python means assignment, it doesn't test equality!
-#for reading a csv as a dataframe so you can work with it in python: 
-import pandas as pd
-import matplotlib.pyplot as plt
-netflix_df = pd.read_csv("netflix_data.csv")
-
-IMPORTANT
-Código	Resultado	Tipo
-netflix_df	Todo el conjunto de datos	DataFrame
-mov90_df = netflix_df[...]	Subconjunto filtrado	DataFrame
-mov90_df['duration']	Una sola columna	Series
-mov90_df[['duration']]	Una sola columna, pero en tabla	DataFrame
 
 # FUNCTIONS
 
@@ -26,28 +15,6 @@ mov90_df[['duration']]	Una sola columna, pero en tabla	DataFrame
   # For adding strings with integers, first you need to transform those integers in strings like:
     #print("I started with $" + str(savings) + " and now have $" + str(total_savings) + ". Awesome!")
     # Result: I started with $100 and now have $150. Awesome!
-
-
-#INDEX
-
-# Print out the weight at index 50
-print(np_weight_lb[50])
-
-# Print out sub-array of np_height_in: index 100 up to and including index 110
-print(np_height_in[100:110])
-
-#CREATE AN INDEX
-pop = [30.55, 2.77, 39.21]
-countries = ["afghanistan", "albania", "algeria"]
-ind_alb = countries.index("albania")
-print(ind_alb)
---
-1
-
-print(pop[ind_alb])
---
-2.77
-
 
 
 # LISTS & SUBLISTS
@@ -100,23 +67,19 @@ fam=[[1.86, 'dad'], [1.67, 'mom']]
 
 
 #FUNCTIONS & METHODS
-#FUNCTIONS - formulas already made for calculating using python. Can be used for all types of elements
-max()
-pow() #calculate una potencia (base y exponente)
-round()
+  #FUNCTIONS - formulas already made for calculating using python. Can be used for all types of elements
+    max()
+    pow() #calculate una potencia (base y exponente)
+    round()
 
-#METHODS - only can be used for specific types of elements
-#List methods - example: INDEX - find the index of an specific element
-['liz', 1.73, 'emma', 1.68, 'mom', 1.71, 'dad', 1.89]
-fam.index("mom") 
-4
-
-
-
-#PACKAGES -to inport a package that allows you to do specific calculations. Write the package before de spacific calculation using brackets to refer to the kist that you want to change.
-
-import numpy as np
-areas_sample= np.array(areas)
-
-
+  #METHODS - only can be used for specific types of elements
+  #List methods - example: 
+    #INDEX - find the index of an specific element
+    ['liz', 1.73, 'emma', 1.68, 'mom', 1.71, 'dad', 1.89]
+    fam.index("mom") 
+    4
+    #COUNT - count an element
+    areas = [11.25, 18.0, 20.0, 10.75, 9.50]
+    print(areas.count(9.50))
+    1
 

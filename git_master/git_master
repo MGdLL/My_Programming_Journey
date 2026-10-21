@@ -7,8 +7,15 @@ git version
 git init
 
 
+BASIC DAILY
 
-BASIC DAILY 
+1. git pull - for updating local with git data. JUST IN CASE YOU HAVE SOMETHING NEW FROM GITHUB
+2. git add . - save local data
+3. git commit -m - update data for push
+4. git push - update github
+
+
+BASIC 
 
 -- to see status (delete, modified or created files)
 git status -s
