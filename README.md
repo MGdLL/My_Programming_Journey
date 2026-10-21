@@ -8,6 +8,4 @@ I am currently focusing on these languages and tools:
   🐍 Python
   🗄️ SQL
 
-👩‍💻 Follow my progress
-
-Check out what I’m working on and feel free to share feedback!
+👩‍💻 Check out what I’m working on and feel free to share feedback!
